@@ -3,7 +3,7 @@ import java.util.Random;
 public class Equilibrio {
 	
 	//numero di elementi
-	private static final int NUMERO = 5;
+	private static final int NUMERO = 10;
 
 	//viene definito il metodo per la creazione della matrice dell'equilibrio
 	public void creaMatrice() {

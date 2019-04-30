@@ -28,6 +28,11 @@ public class Menu {
             switch (scelta) {
             case 1:
                 
+                String nome = InputDati.leggiStringa("Inserisci il nome del primo cobattente: ");
+                Combattente combattente1 = new Combattente(nome, );
+               
+                nome = InputDati.leggiStringa("Inserisci il nome del secondo cobattente: ");
+                Combattente combattente2 = new Combattente(nome);
                 
                 break;
             

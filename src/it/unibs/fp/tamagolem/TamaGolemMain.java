@@ -10,7 +10,7 @@ public class TamaGolemMain {
 		Menu m = new Menu();
 		System.out.println(SALUTO_INIZIALE);
 		e.creaMatrice();
-		m.mostraMenu();
+		m.mostraMenuIniziale();
 		
 
   
