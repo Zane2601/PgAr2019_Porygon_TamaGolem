@@ -2,6 +2,8 @@ package it.unibs.fp.tamagolem;
 
 import java.util.ArrayList;
 
+import it.unibs.fp.mylib.InputDati;
+
 public class Combattente {
 	private String nome;
 	private ArrayList<TamaGolem> squadra = new ArrayList<TamaGolem>();
@@ -24,6 +26,11 @@ public class Combattente {
 		this.nome = nome;
 	}
 	
-	
+	public  Combattente creaCombattente() {
+        String nome = InputDati.leggiStringa("Inserisci il nome del combattente: ");
+        ArrayList<TamaGolem> squadra = new ArrayList<TamaGolem>();
+        Combattente combattente = new Combattente(nome, squadra);
+        return combattente;
+	}
 
 }
