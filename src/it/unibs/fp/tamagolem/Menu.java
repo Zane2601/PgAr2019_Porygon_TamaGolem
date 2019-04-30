@@ -47,22 +47,27 @@ public class Menu {
 	public void mostraMenuSecondario() {
 		int scelta;
 		MyMenu menu = new MyMenu(TITOLO_MENU_SECONDARIO, VOCI_MENU_SECONDARIO);
-		
+		int[][] matriceEquilibrio;
 		do {
 			scelta = menu.scegli();
 			switch(scelta) {
 			case 1:
 				System.out.println("Giocherai con 5 elementi e 3 pietre assegnabili ai tuoi TamaGolem");
 				e.setN(5);
-				e.stampaMatrice();
+				matriceEquilibrio = e.creaEquilibrio();
+				e.stampaMatrice(matriceEquilibrio);
 				break;
 			case 2:
 				System.out.println("Giocherai con 8 elementi e 4 pietre assegnabili ai tuoi TamaGolem");
 				e.setN(8);
+				matriceEquilibrio = e.creaEquilibrio();
+				e.stampaMatrice(matriceEquilibrio);
 				break;
 			case 3:
 				System.out.println("Giocherai con 10 elementi e 5 pietre assegnabili ai tuoi TamaGolem");
 				e.setN(10);
+				matriceEquilibrio = e.creaEquilibrio();
+				e.stampaMatrice(matriceEquilibrio);
 				break;
 			}
 		} while (scelta !=0);

@@ -7,7 +7,7 @@ public class Equilibrio {
 	private int p;    //numero di pietre per golem 
 	private int g;    //numero di golem
 	private int s;    //numero pietre nella sacca comune
-	int [][] mat=new int[n][n];
+	
 	
 	public Equilibrio(int _n/*, int _p, int _g, int _s*/) {
 		this.n = _n;
@@ -49,11 +49,12 @@ public class Equilibrio {
 	}
 	
 	//viene definito il metodo per la creazione della matrice dell'equilibrio 
-	public void creaEquilibrio() {
+	public int[][] creaEquilibrio() {
 	//setP=[(n+1)/3]+1;
 	//setG=[(n-1)*(n-2)/(2*p)];
 	//setS=[(2*g*p)/n]*n;
 	
+	int [][] mat=new int[n][n];
 	Random random= new Random();
 	for(int i=0; i<n; i++) {
 		//la variabile somma memorizza la somma dei valori generati sulla stessa linea
@@ -77,13 +78,14 @@ public class Equilibrio {
 				somma=somma+mat[i][j];
 			}
 		}
+	return mat;
    }
 	
-	public void stampaMatrice() {
+	public void stampaMatrice(int[][] matrice) {
 		//stampa della matrice
 		for(int i=0; i<n; i++) {
 			for(int j=0; j<n; j++) {
-				System.out.print(mat[i][j] + "\t");
+				System.out.print(matrice[i][j] + "\t");
 			}
 			System.out.println("");
 		}
