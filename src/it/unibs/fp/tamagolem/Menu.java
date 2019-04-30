@@ -1,5 +1,7 @@
 package it.unibs.fp.tamagolem;
 import java.lang.*;
+import java.util.ArrayList;
+
 import it.unibs.fp.mylib.*;
 
 
@@ -27,13 +29,9 @@ public class Menu {
             scelta = menu.scegli();
             switch (scelta) {
             case 1:
-                
-                String nome = InputDati.leggiStringa("Inserisci il nome del primo cobattente: ");
-                Combattente combattente1 = new Combattente(nome, );
-               
-                nome = InputDati.leggiStringa("Inserisci il nome del secondo cobattente: ");
-                Combattente combattente2 = new Combattente(nome);
-                
+            	Combattente combattente1 = creaCombattente();
+                Combattente combattente2 = creaCombattente();
+                mostraMenuSecondario();
                 break;
             
             
@@ -43,6 +41,12 @@ public class Menu {
            
         } while (scelta != 0);
     }
+	private Combattente creaCombattente() {
+        String nome = InputDati.leggiStringa("Inserisci il nome del combattente: ");
+        ArrayList<TamaGolem> squadra = new ArrayList<TamaGolem>();
+        Combattente combattente = new Combattente(nome, squadra);
+        return combattente;
+	}
 	
 	public void mostraMenuSecondario() {
 		int scelta;
@@ -61,7 +65,7 @@ public class Menu {
 				System.out.println("Giocherai con 10 elementi e 5 pietre assegnabili ai tuoi TamaGolem");
 				break;
 			}
-		}while (scelta !=0);
+		} while (scelta !=0);
 		
 	}
 }
