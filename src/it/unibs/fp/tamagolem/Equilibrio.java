@@ -41,5 +41,38 @@ public class Equilibrio {
 		System.out.println("");
 	}
 
-}
+	}
+	
+	//stampa equilibri del mondo
+	public static void stampaEquilibrioMondo (int mat[][]) {
+	    String [] tipo = {"aria", "acqua", "terra", "fuoco", "erba", "etere", "buio", "luce", "ghiaccio", "roccia"};
+
+		
+		for (int i = 0; i < NUMERO; i++) {
+			System.out.print(tipo[i]+ "   ");
+		}
+		
+		System.out.println("\n");
+		
+		
+		for(int i=0; i<NUMERO; i++) {
+			//System.out.print(tipo[i]+" \t ");
+			for(int j=0; j<NUMERO; j++) {
+				System.out.print(mat[i][j]+"\t");
+			}
+			System.out.print(tipo[i]+"\t");
+			System.out.print("\n");
+			//System.out.print(tipo[i]+"\t");
+			
+		}
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }
