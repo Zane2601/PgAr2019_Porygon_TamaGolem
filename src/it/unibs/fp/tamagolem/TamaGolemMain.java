@@ -6,10 +6,10 @@ public class TamaGolemMain {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		Equilibrio e = new Equilibrio();
+		Equilibrio e = new Equilibrio(0);
 		Menu m = new Menu();
 		System.out.println(SALUTO_INIZIALE);
-		e.creaMatrice();
+		e.creaEquilibrio();
 		m.mostraMenuIniziale();
 		
 
