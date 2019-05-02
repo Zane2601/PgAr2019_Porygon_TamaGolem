@@ -16,9 +16,23 @@ public class Combattimento {
 	
 	// vengono passati i tipi delle pietre e trova nella matrice il danno da applicare
 	public int calcoloDanni (String tipo1, String tipo2, int difficolta) {
+		int danno;
+		
+		if(trovaPosMatrice (tipo1,tipo2,difficolta) < 0) {
+			danno = trovaPosMatrice (tipo1,tipo2,difficolta)*(-1);
+		}else if (trovaPosMatrice (tipo1,tipo2,difficolta) > 0) {
+			danno = trovaPosMatrice (tipo1,tipo2,difficolta);
+		}else {
+			danno = 0;
+		}
+		
+		return danno;
+	}
+	
+	// trova la posizione del valore nella matrice
+	public int trovaPosMatrice (String tipo1, String tipo2, int difficolta) {
 		int posTipo1 = -1;
 		int posTipo2 = -1;
-		int danno;
 		Equilibrio matrice = new Equilibrio(difficolta);
 		
 		
@@ -31,18 +45,27 @@ public class Combattimento {
 			}
 		}
 		
-		
-		if(matrice.creaEquilibrio()[posTipo1][posTipo2] < 0) {
-			danno = matrice.creaEquilibrio()[posTipo1][posTipo2]*(-1);
-		}else {
-			danno = matrice.creaEquilibrio()[posTipo1][posTipo2];
-		}
-		if (matrice.creaEquilibrio()[posTipo1][posTipo2]==0) {
-			danno = 0;
-		}
-		
-		return danno;
+		return matrice.creaEquilibrio()[posTipo1][posTipo2];
 	}
+	
+	// serve per decidere quale TamaGolem attaccherà o subirà un attacco
+	public boolean chiAttacca (String tipo1, String tipo2, int difficolta) {
+		
+		if (trovaPosMatrice(tipo1, tipo2, difficolta)<0) {
+			return true;
+		}else{
+			return false;
+		}
+		
+		
+	}
+	
+	
+	
+	
+	
+	
+	
 	
 	
 
