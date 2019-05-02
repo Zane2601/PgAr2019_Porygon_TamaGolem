@@ -7,7 +7,7 @@ public class Equilibrio {
 	private int p;    //numero di pietre per golem 
 	private int g;    //numero di golem
 	private int s;    //numero pietre nella sacca comune
-	
+	public static String [] tipo = {"aria", "acqua", "terra", "fuoco", "erba", "etere", "buio", "luce", "roccia", "elettro"};
 	
 	public Equilibrio(int _n/*, int _p, int _g, int _s*/) {
 		this.n = _n;
@@ -101,7 +101,7 @@ public class Equilibrio {
 	
 	//stampa equilibri del mondo
 	public static void stampaEquilibrioMondo (int[][] mat, int n) {
-	    String [] tipo = {"aria", "acqua", "terra", "fuoco", "erba", "etere", "buio", "luce", "roccia", "elettro"};
+	    //String [] tipo = {"aria", "acqua", "terra", "fuoco", "erba", "etere", "buio", "luce", "roccia", "elettro"};
 
 		
 		for (int i = 0; i < n; i++) {
