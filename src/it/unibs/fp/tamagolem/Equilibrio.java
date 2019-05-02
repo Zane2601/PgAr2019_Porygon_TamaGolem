@@ -69,9 +69,11 @@ public class Equilibrio {
 						//se il numero della riga è minore di quello della colonna (matrice triangolare sup.) si genera un numero casuale
 						if (i<j) {
 							mat[i][j] = random.nextInt(100)-49;
-							if (mat[i][j]==0) {                      // evito di avere 0 fuori dalla diagonale principale
+							do {
 								mat[i][j] = random.nextInt(100)-49;
 							}
+							while (mat[i][j]==0);                      // evito di avere 0 fuori dalla diagonale principale
+							
 						}
 						else {
 							//la matrice triangolare inf. è uguale alla sup. cambiata di segno
