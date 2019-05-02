@@ -96,7 +96,7 @@ public class Equilibrio {
 	
 	//stampa equilibri del mondo
 	public static void stampaEquilibrioMondo (int[][] mat, int n) {
-	    String [] tipo = {"aria", "acqua", "terra", "fuoco", "erba", "etere", "buio", "luce", "ghiaccio", "roccia"};
+	    String [] tipo = {"aria", "acqua", "terra", "fuoco", "erba", "etere", "buio", "luce", "roccia", "elettro"};
 
 		
 		for (int i = 0; i < n; i++) {
