@@ -67,7 +67,12 @@ public class Equilibrio {
 					if (j==(n-1)) mat[i][j]=-somma;
 					else {
 						//se il numero della riga è minore di quello della colonna (matrice triangolare sup.) si genera un numero casuale
-						if (i<j) mat[i][j] = random.nextInt(100)-49;
+						if (i<j) {
+							mat[i][j] = random.nextInt(100)-49;
+							if (mat[i][j]==0) {                      // evito di avere 0 fuori dalla diagonale principale
+								mat[i][j] = random.nextInt(100)-49;
+							}
+						}
 						else {
 							//la matrice triangolare inf. è uguale alla sup. cambiata di segno
 							if (i>j) mat[i][j] = -mat[j][i];
