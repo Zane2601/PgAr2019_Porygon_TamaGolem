@@ -95,23 +95,23 @@ public class Equilibrio {
 	
 	
 	//stampa equilibri del mondo
-	public static void stampaEquilibrioMondo (int mat[][], int NUMERO) {
+	public static void stampaEquilibrioMondo (int[][] mat, int n) {
 	    String [] tipo = {"aria", "acqua", "terra", "fuoco", "erba", "etere", "buio", "luce", "ghiaccio", "roccia"};
 
 		
-		for (int i = 0; i < NUMERO; i++) {
-			System.out.print(tipo[i]+ "   ");
+		for (int i = 0; i < n; i++) {
+			System.out.print("\t " + tipo[i]);
 		}
 		
 		System.out.println("\n");
 		
 		
-		for(int i=0; i<NUMERO; i++) {
-			//System.out.print(tipo[i]+" \t ");
-			for(int j=0; j<NUMERO; j++) {
+		for(int i=0; i<n; i++) {
+			System.out.print(tipo[i] + "\t ");
+			for(int j=0; j<n; j++) {
 				System.out.print(mat[i][j]+"\t");
 			}
-			System.out.print(tipo[i]+"\t");
+			//System.out.print(tipo[i]+"\t");
 			System.out.print("\n");
 			//System.out.print(tipo[i]+"\t");
 			
