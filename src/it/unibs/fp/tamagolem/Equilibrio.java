@@ -5,10 +5,12 @@ public class Equilibrio {
 	
 	
 	private int n;    //numero di elementi
-	private double p = Math.ceil(((n + 1) / 3))+ 1;;    //numero di pietre per golem 
-	private double g = Math.ceil(((n - 1)*(n - 2) / (2 * p)));;    //numero di golem
+	private double p = Math.ceil((n+1)/3 + 1);
+			//wdcedsMath.ceil(((n + 1) / 3))+ 1;    //numero di pietre per golem 
+	private double g = Math.ceil(((n - 1)*(n - 2) / (2 * p)));    //numero di golem
 	private double s = Math.ceil(((2 * g * p) / n)) * n;    //numero pietre nella sacca comune
 	
+
 	public static String [] tipo = {"aria", "acqua", "terra", "fuoco", "erba", "etere", "buio", "luce", "roccia", "elettro"};
 	
 	public Equilibrio(int _n/*, int _p, int _g, int _s*/) {
@@ -135,9 +137,9 @@ public class Equilibrio {
 	 */
 	public ArrayList<String> creaScortaComune () {
 		ArrayList<String> scorta = new ArrayList<String>();
+		double SdivisoN = (Math.ceil(s/n));
 		//vengono generati i valori di gioco, secondo le dinamiche (vengono mantenuti double, perché sennò alcuni sono = 0
 		
-		double SdivisoN = (Math.ceil(s/n));
 
 		//scorro l'arraylist degli elementi
 		for (int i = 0; i < n; i++) {
@@ -147,8 +149,9 @@ public class Equilibrio {
 				
 			}
 		}
-		
+		System.out.println(scorta);
 		return scorta;
 	}
+	
 	
 }

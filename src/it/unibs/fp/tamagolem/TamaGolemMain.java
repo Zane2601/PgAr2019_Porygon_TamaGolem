@@ -12,7 +12,6 @@ public class TamaGolemMain {
 		Combattente c = new Combattente(null, null);
     	Combattente c1 = c.creaCombattente();
         Combattente c2 = c.creaCombattente();
-		e.creaEquilibrio();
 		m.mostraMenuIniziale(c1, c2);
 		
 

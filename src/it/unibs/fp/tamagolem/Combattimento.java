@@ -62,31 +62,53 @@ public class Combattimento {
 	
 	//lancio pietre
 	
-	public int lancioPietre (ArrayList<String> listaPietre1, ArrayList<String> listaPietre2, int numElementi, int [][] matrice, int vitaTama1, int vitaTama2) {
+	public int lancioPietre (Combattente comb1, Combattente comb2, int[][] matriceEquilibrio, ArrayList<String> scorta) {
 		double numPietre = e.getP();
+		int g1 = 0;
+		int g2 = 0;
+		
+		int vitaTama1 = comb1.getSquadra().get(g1).getVita();
+		int vitaTama2 = comb2.getSquadra().get(g2).getVita();
 		
 		do {
 			int danno;
 			int i;
 			
-			
 			for (i = 0; i < numPietre; i++) {
-				danno = calcoloDanni(listaPietre1.get(i), listaPietre2.get(i), numElementi, matrice);
-				if (chiAttacca(listaPietre1.get(i), listaPietre2.get(i), numElementi, matrice)) {
+				
+				danno = calcoloDanni(comb1.getSquadra().get(g1).getListaPietre().get(i), comb2.getSquadra().get(g2).getListaPietre().get(i), e.getN());
+				if (chiAttacca(comb1.getSquadra().get(g1).getListaPietre().get(i), comb2.getSquadra().get(g2).getListaPietre().get(i), e.getN(), matriceEquilibrio)) {
 					vitaTama1 -= danno;
 				}else {
 					vitaTama2 -= danno;
 				}
-				if (i==numElementi) {
+				if (i==e.getN()) {
 					i=0;
 				}
 				if (vitaTama1<0 || vitaTama2<0) break;
 			}
 		
 		} while (vitaTama1>0 && vitaTama2>0);
+		if (vitaTama1 <= 0) {
+			do {
+				g1++;
+				for (int i = 0; i < e.getP(); i++) {
+					comb1.getSquadra().get(g1).assegnaPietre(scorta);
+				}
+				
+			} while (g1<e.getG());
+			
+			
+		} else {
+			do {
+				g2++;
+				for (int i = 0; i < e.getP(); i++) {
+					comb2.getSquadra().get(g2).assegnaPietre(scorta);
+				}
+			} while (g2<e.getG());
+		}
 		
-		
-		return
+		return 0;
 	}
 	
 	
