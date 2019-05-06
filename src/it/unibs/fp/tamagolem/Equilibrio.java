@@ -144,6 +144,7 @@ public class Equilibrio {
 			//aggiungo un elemento alla scorta, tante quante sono le volte che un elemento deve stare nella scorta
 			for (int j = 0; j < SdivisoN; j++) {
 				scorta.add(tipo[i]);
+				
 			}
 		}
 		
