@@ -92,6 +92,8 @@ public class Menu {
 			scelta=menu.scegli();
 			switch(scelta) {
 			case 1:
+				e.getN();
+				e.creaScortaComune();
 				break;
 			case 2:
 				break;

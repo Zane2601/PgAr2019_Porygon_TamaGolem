@@ -133,7 +133,7 @@ public class Equilibrio {
 	 * @param listaElementiConCuiGiocare, lista scelta dai giocatori
 	 * @return scorta generata
 	 */
-	public ArrayList<String> creaScortaComune (ArrayList<String> listaElementiConCuiGiocare) {
+	public ArrayList<String> creaScortaComune () {
 		ArrayList<String> scorta = new ArrayList<String>();
 		//vengono generati i valori di gioco, secondo le dinamiche (vengono mantenuti double, perché sennò alcuni sono = 0
 		
@@ -143,7 +143,7 @@ public class Equilibrio {
 		for (int i = 0; i < n; i++) {
 			//aggiungo un elemento alla scorta, tante quante sono le volte che un elemento deve stare nella scorta
 			for (int j = 0; j < SdivisoN; j++) {
-				scorta.add(listaElementiConCuiGiocare.get(i));
+				scorta.add(tipo[i]);
 			}
 		}
 		
