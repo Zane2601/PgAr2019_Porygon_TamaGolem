@@ -5,10 +5,6 @@ public class Equilibrio {
 	
 	
 	private int n;    //numero di elementi
-	private double p = Math.ceil((n+1)/3 + 1);
-			//wdcedsMath.ceil(((n + 1) / 3))+ 1;    //numero di pietre per golem 
-	private double g = Math.ceil(((n - 1)*(n - 2) / (2 * p)));    //numero di golem
-	private double s = Math.ceil(((2 * g * p) / n)) * n;    //numero pietre nella sacca comune
 	
 
 	public static String [] tipo = {"aria", "acqua", "terra", "fuoco", "erba", "etere", "buio", "luce", "roccia", "elettro"};
@@ -25,36 +21,16 @@ public class Equilibrio {
 		return n;
 	}
 
-	public double getP() {
-		return p;
-	}
-
-	public double getG() {
-		return g;
-	}
-
-	public double getS() {
-		return s;
-	}
+	
 	
 	public void setN(int n) {
 		this.n = n;
 	}
 
-	public void setP(int p) {
-		this.p = p;
-	}
-
-	public void setG(int g) {
-		this.g = g;
-	}
-
-	public void setS(int s) {
-		this.s = s;
-	}
+	
 	
 	//viene definito il metodo per la creazione della matrice dell'equilibrio 
-	public int[][] creaEquilibrio() {
+	public int[][] creaEquilibrio(int n) {
 	//setP=[(n+1)/3]+1;
 	//setG=[(n-1)*(n-2)/(2*p)];
 	//setS=[(2*g*p)/n]*n;
@@ -135,7 +111,7 @@ public class Equilibrio {
 	 * @param listaElementiConCuiGiocare, lista scelta dai giocatori
 	 * @return scorta generata
 	 */
-	public ArrayList<String> creaScortaComune () {
+	public ArrayList<String> creaScortaComune (int s, int n) {
 		ArrayList<String> scorta = new ArrayList<String>();
 		double SdivisoN = (Math.ceil(s/n));
 		//vengono generati i valori di gioco, secondo le dinamiche (vengono mantenuti double, perché sennò alcuni sono = 0
@@ -149,9 +125,24 @@ public class Equilibrio {
 				
 			}
 		}
-		System.out.println(scorta);
+		
 		return scorta;
 	}
 	
+	public void stampaScorta(ArrayList<String> scorta) {
+		int contatore = 1;
+		int contatoreElementi = 1;
+		for (int i = 0; i < scorta.size()-1; i++) {
+			if (scorta.get(i).equals(scorta.get(i+1))) {
+				contatore++;
+			} else {
+				System.out.println("["+contatoreElementi +"] " + scorta.get(i) + "\tNe restano " +contatore +"x");
+				contatoreElementi++;
+				contatore = 1;
+			}
+		}
+		System.out.println("["+contatoreElementi +"] " + scorta.get(scorta.size()-1) + "\tNe restano " +contatore +"x");
+
+	}
 	
 }

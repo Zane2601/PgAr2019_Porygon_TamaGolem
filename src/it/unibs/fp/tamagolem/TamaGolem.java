@@ -33,9 +33,8 @@ public class TamaGolem {
 	public ArrayList<String> assegnaPietre(ArrayList<String> scortaInIngresso) {
 		
 		ArrayList<String> scortaRestante = scortaInIngresso;
-		for (int i = 0; i < scortaRestante.size(); i++) {
-			System.out.println("["+ (i+1)+"] "+scortaRestante.get(i));
-		}
+		Equilibrio e = new Equilibrio();
+		
 		int pietra = InputDati.leggiIntero("Scrivi il numero dell'elemento della pietra che vuoi assegnare al tuo TamaGolem: ");
 		listaPietre.add(scortaRestante.get(pietra-1));
 		scortaRestante.remove(pietra-1);
