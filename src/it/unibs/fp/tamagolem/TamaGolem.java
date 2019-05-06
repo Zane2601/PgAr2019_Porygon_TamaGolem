@@ -5,9 +5,9 @@ import java.util.ArrayList;
 public class TamaGolem {
 	
 	private int  vita;  //la vita non può essere fissa, a seconda del livello di difficolta deve cambiare
-	private ArrayList<Integer> listaPietre = new ArrayList<Integer>();
+	private ArrayList<String> listaPietre = new ArrayList<String>();
 	
-	public TamaGolem(int _vita, ArrayList<Integer> _listaPietre) {
+	public TamaGolem(int _vita, ArrayList<String> _listaPietre) {
 		this.vita = _vita;
 		this.listaPietre = _listaPietre;
 	}
@@ -16,7 +16,7 @@ public class TamaGolem {
 		return vita;
 	}
 
-	public ArrayList<Integer> getListaPietre() {
+	public ArrayList<String> getListaPietre() {
 		return listaPietre;
 	}
 
@@ -24,7 +24,7 @@ public class TamaGolem {
 		this.vita = vita;
 	}
 
-	public void setListaPietre(ArrayList<Integer> listaPietre) {
+	public void setListaPietre(ArrayList<String> listaPietre) {
 		this.listaPietre = listaPietre;
 	}
 	
