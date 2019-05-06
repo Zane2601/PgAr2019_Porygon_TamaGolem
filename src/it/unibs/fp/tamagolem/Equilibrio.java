@@ -1,12 +1,14 @@
 package it.unibs.fp.tamagolem;
+import java.util.ArrayList;
 import java.util.Random;
 public class Equilibrio {
 	
 	
 	private int n;    //numero di elementi
-	private int p;    //numero di pietre per golem 
-	private int g;    //numero di golem
-	private int s;    //numero pietre nella sacca comune
+	private double p = Math.ceil(((n + 1) / 3))+ 1;;    //numero di pietre per golem 
+	private double g = Math.ceil(((n - 1)*(n - 2) / (2 * p)));;    //numero di golem
+	private double s = Math.ceil(((2 * g * p) / n)) * n;    //numero pietre nella sacca comune
+	
 	public static String [] tipo = {"aria", "acqua", "terra", "fuoco", "erba", "etere", "buio", "luce", "roccia", "elettro"};
 	
 	public Equilibrio(int _n/*, int _p, int _g, int _s*/) {
@@ -16,19 +18,20 @@ public class Equilibrio {
 		//this.s = _s;
 	}
 	
+	
 	public int getN() {
 		return n;
 	}
 
-	public int getP() {
+	public double getP() {
 		return p;
 	}
 
-	public int getG() {
+	public double getG() {
 		return g;
 	}
 
-	public int getS() {
+	public double getS() {
 		return s;
 	}
 	
@@ -102,7 +105,7 @@ public class Equilibrio {
 	
 	
 	//stampa equilibri del mondo
-	public static void stampaEquilibrioMondo (int[][] mat, int n) {
+	public void stampaEquilibrioMondo (int[][] mat, int n) {
 	    //String [] tipo = {"aria", "acqua", "terra", "fuoco", "erba", "etere", "buio", "luce", "roccia", "elettro"};
 
 		
@@ -123,6 +126,28 @@ public class Equilibrio {
 			//System.out.print(tipo[i]+"\t");
 			
 		}
+	}
+	
+	
+	/**
+	 * @param listaElementiConCuiGiocare, lista scelta dai giocatori
+	 * @return scorta generata
+	 */
+	public ArrayList<String> creaScortaComune (ArrayList<String> listaElementiConCuiGiocare) {
+		ArrayList<String> scorta = new ArrayList<String>();
+		//vengono generati i valori di gioco, secondo le dinamiche (vengono mantenuti double, perché sennò alcuni sono = 0
+		
+		double SdivisoN = (Math.ceil(s/n));
+
+		//scorro l'arraylist degli elementi
+		for (int i = 0; i < n; i++) {
+			//aggiungo un elemento alla scorta, tante quante sono le volte che un elemento deve stare nella scorta
+			for (int j = 0; j < SdivisoN; j++) {
+				scorta.add(listaElementiConCuiGiocare.get(i));
+			}
+		}
+		
+		return scorta;
 	}
 	
 }
