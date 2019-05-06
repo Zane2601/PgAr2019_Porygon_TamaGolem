@@ -9,8 +9,11 @@ public class TamaGolemMain {
 		Equilibrio e = new Equilibrio(0);
 		Menu m = new Menu();
 		System.out.println(SALUTO_INIZIALE);
+		Combattente c = new Combattente(null, null);
+    	Combattente c1 = c.creaCombattente();
+        Combattente c2 = c.creaCombattente();
 		e.creaEquilibrio();
-		m.mostraMenuIniziale();
+		m.mostraMenuIniziale(c1, c2);
 		
 
   

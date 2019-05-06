@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 public class Combattimento {
 	
+	Equilibrio e = new Equilibrio(0);
 	
 	public void aggiungiPietre() {
 		TamaGolem g = new TamaGolem(0, null);
@@ -11,22 +12,16 @@ public class Combattimento {
 	}
 	
 	
-	/*
-	public void faseLancio() {
-		do {
-			
-		}while("vita golem"!=0)
-	}
-	*/
+	
 	
 	// vengono passati i tipi delle pietre e trova nella matrice il danno da applicare
 	public int calcoloDanni (String tipo1, String tipo2, int difficolta, int [][]matrice) {
 		int danno;
 		
-		if(trovaPosMatrice (tipo1,tipo2,difficolta,matrice) < 0) {
+		if(trovaPosMatrice (tipo1,tipo2,difficolta, matrice) < 0) {
 			danno = trovaPosMatrice (tipo1,tipo2,difficolta,matrice)*(-1);
-		}else if (trovaPosMatrice (tipo1,tipo2,difficolta,matrice) > 0) {
-			danno = trovaPosMatrice (tipo1,tipo2,difficolta,matrice);
+		}else if (trovaPosMatrice (tipo1,tipo2,difficolta, matrice) > 0) {
+			danno = trovaPosMatrice (tipo1,tipo2,difficolta,  matrice);
 		}else {
 			danno = 0;
 		}
@@ -35,7 +30,7 @@ public class Combattimento {
 	}
 	
 	// trova la posizione del valore nella matrice
-	public int trovaPosMatrice (String tipo1, String tipo2, int difficolta,int [][]matrice) {
+	public int trovaPosMatrice (String tipo1, String tipo2, int difficolta, int [][]matrice) {
 		int posTipo1 = -1;
 		int posTipo2 = -1;
 		
@@ -67,7 +62,8 @@ public class Combattimento {
 	
 	//lancio pietre
 	
-	public int lancioPietre (int numPietre, ArrayList<String> listaPietre1, ArrayList<String> listaPietre2, int numElementi, int [][] matrice, int vitaTama1, int vitaTama2) {
+	public int lancioPietre (ArrayList<String> listaPietre1, ArrayList<String> listaPietre2, int numElementi, int [][] matrice, int vitaTama1, int vitaTama2) {
+		double numPietre = e.getP();
 		
 		do {
 			int danno;
