@@ -73,7 +73,8 @@ public class Menu {
 				System.out.println("Giocherai con "+n +" elementi e "+p+" pietre assegnabili ai tuoi TamaGolem");
 								
 				for (int i = 0; i < g; i++) {
-					TamaGolem tama = new TamaGolem(100, null);
+					ArrayList<String> listaPietre = new ArrayList<String>();
+					TamaGolem tama = new TamaGolem(100, listaPietre);
 					comb1.getSquadra().add(tama);
 				}
 				
