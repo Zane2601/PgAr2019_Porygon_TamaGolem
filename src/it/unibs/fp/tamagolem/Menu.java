@@ -42,7 +42,7 @@ public class Menu {
             scelta = menu.scegli();
             switch (scelta) {
             case 1:
-            	int livello = InputDati.leggiIntero("Seleziona il livello di difficoltà:\n\t[1] facile\n\t[2] medio\n\t[3] difficile");
+            	int livello = InputDati.leggiIntero("Seleziona il livello di difficoltà:\n\t[1] facile\n\t[2] medio\n\t[3] difficile\n");
             	switch (livello) {
 				case 1:
 					e.setN(5);
@@ -83,7 +83,7 @@ public class Menu {
 				
 				e.stampaScorta(scortaComune);
 				matriceEquilibrio = e.creaEquilibrio(e.getN());
-				e.stampaEquilibrioMondo(matriceEquilibrio, e.getN());
+				//e.stampaEquilibrioMondo(matriceEquilibrio, e.getN());
 				
             	mostraMenuCombattimento();
                 break;

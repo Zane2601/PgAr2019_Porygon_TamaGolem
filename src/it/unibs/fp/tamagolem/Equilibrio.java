@@ -4,10 +4,10 @@ import java.util.Random;
 public class Equilibrio {
 	public static String [] tipo = {"aria", "acqua", "terra", "fuoco", "erba", "etere", "buio", "luce", "roccia", "elettro"};
 	
-	private int n;    //numero di elementi
-	private double g;
-	private double p;
-	private double s;
+	private int n;   	//numero di elementi
+	private double g;	//numero di tamagolem
+	private double p;	//numero di pietre per ciascun tamagolem
+	private double s;	//numero di pietre nella scorta comune
 
 	
 	
