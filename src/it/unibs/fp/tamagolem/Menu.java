@@ -79,17 +79,17 @@ public class Menu {
 				System.out.println("Giocherai con "+e.getN() +" elementi e "+e.getP()+" pietre assegnabili ai tuoi TamaGolem");
 				
 				scortaComune = e.creaScortaComune(e.getS(), e.getN());
-				System.out.println("n="+e.getN());
-				System.out.println("p="+e.getP());
-				System.out.println("g="+e.getG());
-				System.out.println("s="+e.getS());
+				//System.out.println("n="+e.getN());
+				//System.out.println("p="+e.getP());
+				//System.out.println("g="+e.getG());
+				//System.out.println("s="+e.getS());
 
 				System.out.println(scortaComune.size());
 				
 				e.stampaScorta(scortaComune);
 				matriceEquilibrio = e.creaEquilibrio(e.getN());
 				//e.stampaEquilibrioMondo(matriceEquilibrio, e.getN());
-				System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\\n");
+				System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
             	mostraMenuCombattimento(c1, c2, scortaComune, matriceEquilibrio);
                 break;
             }
@@ -229,7 +229,7 @@ public class Menu {
 					System.out.println(""+c2.getSquadra().get(0).getListaPietre());
 				}
 				
-				if (combat.lancioPietre(c1, c2, matEquilibrio, scorta) == 1) System.out.println(c1.getNome()+" ha vinto!"); 
+				if (combat.lancioPietre(c1, c2, matEquilibrio, scorta,e.getP()) == 1) System.out.println(c1.getNome()+" ha vinto!"); 
 				else System.out.println(c2.getNome() +" ha vinto!");
 				break;
 			
