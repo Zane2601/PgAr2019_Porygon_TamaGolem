@@ -81,12 +81,12 @@ public class Menu {
 				e.stampaScorta(scortaComune);
 				matriceEquilibrio = e.creaEquilibrio(n);
 				e.stampaEquilibrioMondo(matriceEquilibrio, n);
-				for (int i = 0; i < p; i++) {
+				for (int i = 1; i < p; i++) {
 					for (int j = 0; j < scortaComune.size(); j++) {
 						System.out.println("["+(j+1) +"] "+scortaComune.get(j));
 					}
 					System.out.println("Vai "+comb1.getNome()+", tocca a te!");
-					int pietra = InputDati.leggiIntero("Inserisci il numero dell'elemento che vuoi dare in pasto al TamaGolem: ");
+					String pietra = InputDati.leggiStringa("Inserisci il numero dell'elemento che vuoi dare in pasto al TamaGolem: ");
 					comb1.getSquadra().get(0).getListaPietre().add(scortaComune.get(i-1));
 					System.out.println("L'elemento " +comb1.getSquadra().get(0).getListaPietre().get(i)+ " è stato assegnato al primo golem di " +comb1.getNome());
 					scortaComune.remove(pietra);
@@ -94,7 +94,7 @@ public class Menu {
 						System.out.println("["+(j+1) +"] "+scortaComune.get(j));
 					}
 					System.out.println("\nVai "+comb2.getNome()+", è il tuo turno!");
-					pietra = InputDati.leggiIntero("Inserisci il numero dell'elemento che vuoi dare in pasto al TamaGolem: ");
+					pietra = InputDati.leggiStringa("Inserisci il numero dell'elemento che vuoi dare in pasto al TamaGolem: ");
 					comb2.getSquadra().get(0).getListaPietre().add(scortaComune.get(i-1));
 					System.out.println("L'elemento " +comb2.getSquadra().get(0).getListaPietre().get(i)+ " è stato assegnato al primo golem di " +comb2.getNome());
 					scortaComune.remove(pietra);
