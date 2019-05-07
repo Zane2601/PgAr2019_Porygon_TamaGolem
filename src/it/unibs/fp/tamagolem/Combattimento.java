@@ -128,8 +128,8 @@ public class Combattimento {
 		}
 		} while (g1 == e.getG() || g2 == e.getG());
 		
-		if (g1 == e.getG())	return 1;
-		else return 2;
+		if (g1 == e.getG())	return 2;
+		else return 1;
 	}
 	
 	
