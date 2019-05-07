@@ -1,12 +1,14 @@
 package it.unibs.fp.tamagolem;
 import java.lang.*;
 import java.util.ArrayList;
+import java.util.Collections;
 
 import it.unibs.fp.mylib.*;
 
 
 
 public class Menu {
+	private static final String MESSAGGIO_DI_ERRORE = "Le pietre da voi scelte creerebbero una distorsione nell'equilibrio, per questo l'ordine verrà randomizzato da forze superiori";
 	private static final String SPIEGAZIONE_COMBATTIMENTO = "Prima di iniziare il combattimento dovrete assegnare le pietre del potere ai vostri TamaGolem,\ndovrete farlo ogni qualvolta un vostro TamaGolem morirà";
 	Equilibrio e = new Equilibrio();
 	Combattente c = new Combattente();
@@ -218,6 +220,11 @@ public class Menu {
 					c2.getSquadra().get(0).getListaPietre().add(pietra);
 					scorta.remove(pietra);
 					}
+				if(c1.getSquadra().get(0).getListaPietre().equals(c2.getSquadra().get(0).getListaPietre())) {
+					System.out.println(MESSAGGIO_DI_ERRORE);
+					Collections.shuffle(c2.getSquadra().get(0).getListaPietre());
+					System.out.println(""+c2.getSquadra().get(0).getListaPietre());
+				}
 				
 				break;
 			
