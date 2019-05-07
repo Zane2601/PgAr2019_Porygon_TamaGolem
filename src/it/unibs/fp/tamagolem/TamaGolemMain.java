@@ -7,23 +7,21 @@ import it.unibs.fp.mylib.InputDati;
 public class TamaGolemMain {
 
 	private static final String SALUTO_INIZIALE = "Benvenuto nel mondo dei Tamagolem, dove l'equilibrio degli elementi è sempre mutevole,\n solo i più grandi guerrieri riescono ad adattarsi e a sopravvivere combattendo con i loro fedeli TamaGolem al proprio fianco ";
-	private static final int NUM_PIETRE = 2;
-	private static final int NUM_TAMA = 2;
-	private static final int VITA = 100;
+	//private static final int NUM_PIETRE = 2;
+	//private static final int NUM_TAMA = 2;
+	//private static final int VITA = 100;
 	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		/*
-		Equilibrio e = new Equilibrio(0);
+		
+		Equilibrio e = new Equilibrio();
 		Menu m = new Menu();
 		System.out.println(SALUTO_INIZIALE);
-		Combattente c = new Combattente(null, null);
-    	Combattente c1 = c.creaCombattente();
-        Combattente c2 = c.creaCombattente();
-		m.mostraMenuIniziale(c1, c2);
-		*/
 		
-		Combattimento lotta = new Combattimento();
+		m.mostraMenuIniziale();
+		
+		
+		/*Combattimento lotta = new Combattimento();
 		
 		
 		System.out.println("Giocatore 1 :");
@@ -102,7 +100,7 @@ public class TamaGolemMain {
 		
 		System.out.println("Così i primi due TamaGolem si stanno lanciando le prime due pietre :");
 		System.out.println(comb1.getSquadra().get(0).getListaPietre().get(0) + " e "+comb2.getSquadra().get(0).getListaPietre().get(0));
-				
+		*/		
   
 	}//fine main
 

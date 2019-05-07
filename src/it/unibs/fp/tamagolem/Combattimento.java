@@ -4,12 +4,12 @@ import java.util.ArrayList;
 
 public class Combattimento {
 	
-	Equilibrio e = new Equilibrio(0);
+	Equilibrio e = new Equilibrio();
 	
-	public void aggiungiPietre() {
+	/*public void aggiungiPietre() {
 		TamaGolem g = new TamaGolem(0, null);
 		g.getListaPietre().add(p);
-	}
+	}*/
 	
 	
 	

@@ -29,7 +29,7 @@ public class Menu {
 	};
 	
 	//viene mostrato il menu per iniziare una partita
-	public void mostraMenuIniziale(Combattente comb1, Combattente comb2) {                      
+	public void mostraMenuIniziale() {                      
         int scelta;
         
         
@@ -40,7 +40,7 @@ public class Menu {
             scelta = menu.scegli();
             switch (scelta) {
             case 1:
-            	mostraMenuSecondario(comb1, comb2);
+            	mostraMenuSecondario();
                 break;
             }
            
@@ -48,12 +48,9 @@ public class Menu {
     }
 	
 	
-	public void mostraMenuSecondario(Combattente comb1, Combattente comb2) {
+	public void mostraMenuSecondario() {
 		int scelta2;
-		int n;
-		double p;
-		double g;
-		double s;
+		
 
 		
 		MyMenu menu2 = new MyMenu(TITOLO_MENU_SECONDARIO, VOCI_MENU_SECONDARIO);
@@ -70,13 +67,13 @@ public class Menu {
 				e.setG((int) Math.ceil((e.getN()-1)*(e.getN()-2)/(2*e.getP())));
 				
 				t.setVita(100);
-			    Combattente c = new Combattente();
+			    
 				System.out.println("g="+e.getG());
 			    Combattente c1 = c.creaCombattente(e.getG(), t.getVita());
 			    Combattente c2 = c.creaCombattente(e.getG(), t.getVita());
 				
-				System.out.println("Giocherai con "+n +" elementi e "+p+" pietre assegnabili ai tuoi TamaGolem");
-								
+				System.out.println("Giocherai con "+e.getN() +" elementi e "+e.getP()+" pietre assegnabili ai tuoi TamaGolem");
+				/*				
 				for (int i = 0; i < g; i++) {
 					ArrayList<String> listaPietre = new ArrayList<String>();
 					TamaGolem tama = new TamaGolem(100, listaPietre);
@@ -105,9 +102,9 @@ public class Menu {
 					System.out.println("L'elemento " +comb2.getSquadra().get(0).getListaPietre().get(i)+ " è stato assegnato al primo golem di " +comb2.getNome());
 					scortaComune.remove(pietra);
 				}
+				*/
 				
-				
-				mostraMenuCombattimento(comb1, comb2, matriceEquilibrio, scortaComune);
+				mostraMenuCombattimento();
 				
 				break;
 			case 2:
@@ -144,15 +141,15 @@ public class Menu {
 		
 	}
 	
-	public void mostraMenuCombattimento(Combattente comb1, Combattente comb2, int[][] matriceEquilibrio, ArrayList<String> scorta) {
+	public void mostraMenuCombattimento() {
 		int scelta3;
 		MyMenu menu3 = new MyMenu(TITOLO_MENU_COMBATTIMENTO, VOCI_MENU_COMBATTIMENTO);
 		do {
 			scelta3=menu3.scegli();
 			switch(scelta3) {
 			case 1:
-				Combattimento c = new Combattimento();
-				c.lancioPietre(comb1, comb2, matriceEquilibrio, scorta);
+				//Combattimento c = new Combattimento();
+				//c.lancioPietre(comb1, comb2, matriceEquilibrio, scorta);
 				break;
 			
 			}
@@ -160,6 +157,6 @@ public class Menu {
 				
 			
 		} while (scelta3!=0);
-		mostraMenuIniziale(comb1, comb2);
+		mostraMenuIniziale();
 	}
 }

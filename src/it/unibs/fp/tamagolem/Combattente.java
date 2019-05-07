@@ -11,7 +11,7 @@ public class Combattente {
 	
 	
 	Equilibrio e = new Equilibrio();
-	Menu m = new Menu();
+	
 	public Combattente(String _nome, ArrayList<TamaGolem> _squadra) {
 		this.nome = _nome;
 		this.squadra = _squadra;
