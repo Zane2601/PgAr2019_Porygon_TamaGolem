@@ -220,11 +220,12 @@ public class Menu {
 					c2.getSquadra().get(0).getListaPietre().add(pietra);
 					scorta.remove(pietra);
 					}
-				if(c1.getSquadra().get(0).getListaPietre().equals(c2.getSquadra().get(0).getListaPietre())) {
+				
+				do {
 					System.out.println(MESSAGGIO_DI_ERRORE);
 					Collections.shuffle(c2.getSquadra().get(0).getListaPietre());
 					System.out.println(""+c2.getSquadra().get(0).getListaPietre());
-				}
+				}while(c1.getSquadra().get(0).getListaPietre().equals(c2.getSquadra().get(0).getListaPietre()));
 				
 				break;
 			
