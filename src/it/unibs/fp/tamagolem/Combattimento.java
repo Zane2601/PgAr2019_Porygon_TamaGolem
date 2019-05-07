@@ -79,10 +79,10 @@ public class Combattimento {
 					danno = calcoloDanni(comb1.getSquadra().get(g1).getListaPietre().get(i), comb2.getSquadra().get(g2).getListaPietre().get(i),numEl, matriceEquilibrio);
 					if (chiAttacca(comb1.getSquadra().get(g1).getListaPietre().get(i), comb2.getSquadra().get(g2).getListaPietre().get(i), numEl, matriceEquilibrio) == true) {
 						vitaTama1 -= danno;
-						System.out.println("Il tamagolem di" +comb1.getNome()+ "subisce un danno di"+danno);
+						System.out.println("Il tamagolem di " +comb1.getNome()+ " subisce un danno di "+danno);
 					}else {
 						vitaTama2 -= danno;
-						System.out.println("Il tamagolem di" +comb2.getNome()+ "subisce un danno di"+danno);
+						System.out.println("Il tamagolem di " +comb2.getNome()+ " subisce un danno di "+danno);
 					}
 					if (i==numPietre) {
 						i=0;
@@ -92,7 +92,7 @@ public class Combattimento {
 				
 			} while (vitaTama1>0 && vitaTama2>0);
 			if (vitaTama1 <= 0) {
-				do {
+				
 					g1++;
 					for (int i = 0; i < numPietre; i++) {
 						String pietra;
@@ -106,11 +106,11 @@ public class Combattimento {
 							scorta.remove(pietra);
 					}
 					
-				} while (g1<numTama);
+				
 				
 				
 			} else {
-				do {
+				
 					g2++;
 					for (int i = 0; i < numPietre; i++) {
 						String pietra;
@@ -123,7 +123,7 @@ public class Combattimento {
 						comb2.getSquadra().get(g2).getListaPietre().add(pietra);
 						scorta.remove(pietra);
 					}
-				} while (g2<numTama);
+				
 			}
 			} while (g1 == numTama || g2 == numTama);
 		
