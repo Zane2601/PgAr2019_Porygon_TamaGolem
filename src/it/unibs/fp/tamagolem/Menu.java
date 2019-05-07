@@ -229,7 +229,7 @@ public class Menu {
 					System.out.println(""+c2.getSquadra().get(0).getListaPietre());
 				}
 				
-				if (combat.lancioPietre(c1, c2, matEquilibrio, scorta,e.getP()) == 1) System.out.println(c1.getNome()+" ha vinto!"); 
+				if (combat.lancioPietre(c1, c2, matEquilibrio, scorta,e.getP(),e.getN(), e.getG()) == 1) System.out.println(c1.getNome()+" ha vinto!"); 
 				else System.out.println(c2.getNome() +" ha vinto!");
 				break;
 			

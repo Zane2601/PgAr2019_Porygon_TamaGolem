@@ -61,7 +61,7 @@ public class Combattimento {
 	
 	//lancio pietre
 	
-	public int lancioPietre (Combattente comb1, Combattente comb2, int[][] matriceEquilibrio, ArrayList<String> scorta, double numPietre) {
+	public int lancioPietre (Combattente comb1, Combattente comb2, int[][] matriceEquilibrio, ArrayList<String> scorta, double numPietre, int numEl,double numTama) {
 		
 		int g1 = 0;
 		int g2 = 0;
@@ -76,13 +76,15 @@ public class Combattimento {
 				
 				for (i = 0; i < numPietre; i++) {
 					
-					danno = calcoloDanni(comb1.getSquadra().get(g1).getListaPietre().get(i), comb2.getSquadra().get(g2).getListaPietre().get(i), e.getN(), matriceEquilibrio);
-					if (chiAttacca(comb1.getSquadra().get(g1).getListaPietre().get(i), comb2.getSquadra().get(g2).getListaPietre().get(i), e.getN(), matriceEquilibrio) == true) {
+					danno = calcoloDanni(comb1.getSquadra().get(g1).getListaPietre().get(i), comb2.getSquadra().get(g2).getListaPietre().get(i),numEl, matriceEquilibrio);
+					if (chiAttacca(comb1.getSquadra().get(g1).getListaPietre().get(i), comb2.getSquadra().get(g2).getListaPietre().get(i), numEl, matriceEquilibrio) == true) {
 						vitaTama1 -= danno;
+						System.out.println("Il tamagolem di" +comb1.getNome()+ "subisce un danno di"+danno);
 					}else {
 						vitaTama2 -= danno;
+						System.out.println("Il tamagolem di" +comb2.getNome()+ "subisce un danno di"+danno);
 					}
-					if (i==e.getP()) {
+					if (i==numPietre) {
 						i=0;
 					}
 					if (vitaTama1<0 || vitaTama2<0) break;
@@ -92,7 +94,7 @@ public class Combattimento {
 			if (vitaTama1 <= 0) {
 				do {
 					g1++;
-					for (int i = 0; i < e.getP(); i++) {
+					for (int i = 0; i < numPietre; i++) {
 						String pietra;
 						e.stampaScorta(scorta);
 						System.out.println("Turno di "+comb1.getNome());
@@ -104,13 +106,13 @@ public class Combattimento {
 							scorta.remove(pietra);
 					}
 					
-				} while (g1<e.getG());
+				} while (g1<numTama);
 				
 				
 			} else {
 				do {
 					g2++;
-					for (int i = 0; i < e.getP(); i++) {
+					for (int i = 0; i < numPietre; i++) {
 						String pietra;
 						System.out.println("Turno di "+comb2.getNome());
 						e.stampaScorta(scorta);
@@ -121,9 +123,9 @@ public class Combattimento {
 						comb2.getSquadra().get(g2).getListaPietre().add(pietra);
 						scorta.remove(pietra);
 					}
-				} while (g2<e.getG());
+				} while (g2<numTama);
 			}
-			} while (g1 == e.getG() || g2 == e.getG());
+			} while (g1 == numTama || g2 == numTama);
 		
 		if (g1 == e.getG())	return 2;
 		else return 1;
