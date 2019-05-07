@@ -86,7 +86,7 @@ public class Menu {
 				matriceEquilibrio = e.creaEquilibrio(e.getN());
 				//e.stampaEquilibrioMondo(matriceEquilibrio, e.getN());
 				
-            	mostraMenuCombattimento(c1, c2, scortaComune);
+            	mostraMenuCombattimento(c1, c2, scortaComune, matriceEquilibrio);
                 break;
             }
            
@@ -189,7 +189,7 @@ public class Menu {
 		
 	}fine menu secondario*/
 	
-	public void mostraMenuCombattimento(Combattente c1, Combattente c2, ArrayList<String> scorta) {
+	public void mostraMenuCombattimento(Combattente c1, Combattente c2, ArrayList<String> scorta, int[][] matEquilibrio) {
 		int scelta3;
 		MyMenu menu3 = new MyMenu(TITOLO_MENU_COMBATTIMENTO, VOCI_MENU_COMBATTIMENTO);
 		do {
@@ -210,6 +210,7 @@ public class Menu {
 					c1.getSquadra().get(0).getListaPietre().add(pietra);
 					scorta.remove(pietra);
 					System.out.println("Turno di "+c2.getNome());
+					e.stampaScorta(scorta);
 				do {
 					pietra=InputDati.leggiStringa("Inserisci pietra:");
 					if(!scorta.contains(pietra)) System.out.println("Non esiste questo elemento");
