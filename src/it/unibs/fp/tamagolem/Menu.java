@@ -222,11 +222,11 @@ public class Menu {
 					scorta.remove(pietra);
 					}
 				
-				do {
+				while(c1.getSquadra().get(0).getListaPietre().equals(c2.getSquadra().get(0).getListaPietre())) {
 					System.out.println(MESSAGGIO_DI_ERRORE);
 					Collections.shuffle(c2.getSquadra().get(0).getListaPietre());
 					System.out.println(""+c2.getSquadra().get(0).getListaPietre());
-				}while(c1.getSquadra().get(0).getListaPietre().equals(c2.getSquadra().get(0).getListaPietre()));
+				}
 				
 				combat.lancioPietre(c1, c2, matEquilibrio, scorta);
 				break;
