@@ -7,6 +7,7 @@ import it.unibs.fp.mylib.*;
 
 
 public class Menu {
+	private static final String SPIEGAZIONE_COMBATTIMENTO = "Prima di iniziare il combattimento dovrete assegnare le pietre del potere ai vostri TamaGolem,\ndovrete farlo ogni qualvolta un vostro TamaGolem morirà";
 	Equilibrio e = new Equilibrio();
 	Combattente c = new Combattente();
 	TamaGolem t = new TamaGolem();
@@ -85,7 +86,7 @@ public class Menu {
 				matriceEquilibrio = e.creaEquilibrio(e.getN());
 				//e.stampaEquilibrioMondo(matriceEquilibrio, e.getN());
 				
-            	mostraMenuCombattimento();
+            	mostraMenuCombattimento(c1, c2, scortaComune);
                 break;
             }
            
@@ -188,7 +189,7 @@ public class Menu {
 		
 	}fine menu secondario*/
 	
-	public void mostraMenuCombattimento() {
+	public void mostraMenuCombattimento(Combattente c1, Combattente c2, ArrayList<String> scorta) {
 		int scelta3;
 		MyMenu menu3 = new MyMenu(TITOLO_MENU_COMBATTIMENTO, VOCI_MENU_COMBATTIMENTO);
 		do {
@@ -197,6 +198,26 @@ public class Menu {
 			case 1:
 				//Combattimento c = new Combattimento();
 				//c.lancioPietre(comb1, comb2, matriceEquilibrio, scorta);
+				System.out.println(SPIEGAZIONE_COMBATTIMENTO);
+				for (int i = 0; i <e.getP(); i++) {
+					String pietra;
+					e.stampaScorta(scorta);
+					System.out.println("Turno di "+c1.getNome());
+				do{
+					pietra=InputDati.leggiStringa("Inserisci pietra:");
+					if(!scorta.contains(pietra)) System.out.println("Non esiste questo elemento");
+					}while(!scorta.contains(pietra)) ;
+					c1.getSquadra().get(0).getListaPietre().add(pietra);
+					scorta.remove(pietra);
+					System.out.println("Turno di "+c2.getNome());
+				do {
+					pietra=InputDati.leggiStringa("Inserisci pietra:");
+					if(!scorta.contains(pietra)) System.out.println("Non esiste questo elemento");
+					}while(!scorta.contains(pietra)) ;
+					c2.getSquadra().get(0).getListaPietre().add(pietra);
+					scorta.remove(pietra);
+					}
+				
 				break;
 			
 			}
