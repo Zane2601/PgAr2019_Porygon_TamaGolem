@@ -7,28 +7,32 @@ import it.unibs.fp.mylib.InputDati;
 public class TamaGolem {
 	
 	private int vita;  //la vita non può essere fissa, a seconda del livello di difficolta deve cambiare
-	private ArrayList<String> listaPietre = new ArrayList<String>();
+	private ArrayList<String> listaPietre;
 	
-	public TamaGolem(int _vita, ArrayList<String> _listaPietre) {
+	public TamaGolem(int _vita) {
 		this.vita = _vita;
-		this.listaPietre = _listaPietre;
+		listaPietre = new ArrayList<String>();
 	}
 	
 	public int getVita() {
 		return vita;
 	}
 
-	public ArrayList<String> getListaPietre() {
-		return listaPietre;
-	}
-
 	public void setVita(int vita) {
 		this.vita = vita;
 	}
-
-	public void setListaPietre(ArrayList<String> listaPietre) {
-		this.listaPietre = listaPietre;
+	
+	
+	public void aggiungiPietra (String pietra) {
+		listaPietre.add(pietra);
 	}
+	
+	public ArrayList<String> getListaPietre () {
+		return listaPietre;
+	}
+	
+	
+	
 	
 	public ArrayList<String> assegnaPietre(ArrayList<String> scortaInIngresso) {
 		
