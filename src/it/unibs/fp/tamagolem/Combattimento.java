@@ -73,66 +73,66 @@ public class Combattimento {
 		int vitaTama2 = comb2.getSquadra().get(g2).getVita();
 		
 		do {
-		do {
-			int danno;
-			int i;
-			
-			for (i = 0; i < numPietre; i++) {
-				
-				danno = calcoloDanni(comb1.getSquadra().get(g1).getListaPietre().get(i), comb2.getSquadra().get(g2).getListaPietre().get(i), e.getN(), matriceEquilibrio);
-				if (chiAttacca(comb1.getSquadra().get(g1).getListaPietre().get(i), comb2.getSquadra().get(g2).getListaPietre().get(i), e.getN(), matriceEquilibrio)) {
-					vitaTama1 -= danno;
-				}else {
-					vitaTama2 -= danno;
-				}
-				if (i==e.getN()) {
-					i=0;
-				}
-				if (vitaTama1<0 || vitaTama2<0) break;
-			}
-		
-		} while (vitaTama1>0 && vitaTama2>0);
-		if (vitaTama1 <= 0) {
 			do {
-				g1++;
-				for (int i = 0; i < e.getP(); i++) {
-					String pietra;
-					e.stampaScorta(scorta);
-					System.out.println("Turno di "+comb1.getNome());
-				do{
-					pietra=InputDati.leggiStringa("Inserisci pietra:");
-					if(!scorta.contains(pietra)) System.out.println("Non esiste questo elemento");
-					}while(!scorta.contains(pietra)) ;
-					comb1.getSquadra().get(0).getListaPietre().add(pietra);
-					scorta.remove(pietra);
+				int danno;
+				int i;
+				
+				for (i = 0; i < numPietre; i++) {
+					
+					danno = calcoloDanni(comb1.getSquadra().get(g1).getListaPietre().get(i), comb2.getSquadra().get(g2).getListaPietre().get(i), e.getN(), matriceEquilibrio);
+					if (chiAttacca(comb1.getSquadra().get(g1).getListaPietre().get(i), comb2.getSquadra().get(g2).getListaPietre().get(i), e.getN(), matriceEquilibrio)) {
+						vitaTama1 -= danno;
+					}else {
+						vitaTama2 -= danno;
+					}
+					if (i==e.getN()) {
+						i=0;
+					}
+					if (vitaTama1<0 || vitaTama2<0) break;
 				}
 				
-			} while (g1<e.getG());
-			
-			
-		} else {
-			do {
-				g2++;
-				for (int i = 0; i < e.getP(); i++) {
-					String pietra;
-					System.out.println("Turno di "+comb2.getNome());
-					e.stampaScorta(scorta);
+			} while (vitaTama1>0 && vitaTama2>0);
+			if (vitaTama1 <= 0) {
 				do {
-					pietra=InputDati.leggiStringa("Inserisci pietra:");
-					if(!scorta.contains(pietra)) System.out.println("Non esiste questo elemento");
-					}while(!scorta.contains(pietra)) ;
-					comb2.getSquadra().get(0).getListaPietre().add(pietra);
-					scorta.remove(pietra);
-				}
-			} while (g2<e.getG());
-		}
-		} while (g1 == e.getG() || g2 == e.getG());
+					g1++;
+					for (int i = 0; i < e.getP(); i++) {
+						String pietra;
+						e.stampaScorta(scorta);
+						System.out.println("Turno di "+comb1.getNome());
+							do{
+								pietra=InputDati.leggiStringa("Inserisci pietra:");
+								if(!scorta.contains(pietra)) System.out.println("Non esiste questo elemento");
+							}while(!scorta.contains(pietra)) ;
+							comb1.getSquadra().get(g1).getListaPietre().add(pietra);
+							scorta.remove(pietra);
+					}
+					
+				} while (g1<e.getG());
+				
+				
+			} else {
+				do {
+					g2++;
+					for (int i = 0; i < e.getP(); i++) {
+						String pietra;
+						System.out.println("Turno di "+comb2.getNome());
+						e.stampaScorta(scorta);
+						do {
+							pietra=InputDati.leggiStringa("Inserisci pietra:");
+							if(!scorta.contains(pietra)) System.out.println("Non esiste questo elemento");
+						}while(!scorta.contains(pietra)) ;
+						comb2.getSquadra().get(g2).getListaPietre().add(pietra);
+						scorta.remove(pietra);
+					}
+				} while (g2<e.getG());
+			}
+			} while (g1 == e.getG() || g2 == e.getG());
 		
 		if (g1 == e.getG())	return 2;
 		else return 1;
+		}
+	
+	
+	
+	
 	}
-	
-	
-	
-
-}
