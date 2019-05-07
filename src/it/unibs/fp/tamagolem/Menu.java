@@ -5,9 +5,11 @@ import java.util.ArrayList;
 import it.unibs.fp.mylib.*;
 
 
+
 public class Menu {
-	Equilibrio e = new Equilibrio(0);
-	
+	Equilibrio e = new Equilibrio();
+	Combattente c = new Combattente();
+	TamaGolem t = new TamaGolem();
 	private static final String TITOLO_MENU = "Scegli un'azione";
 	private static final String [] VOCI_MENU_INIZIALE = {
             "Inizia Partita",
@@ -62,14 +64,17 @@ public class Menu {
 			scelta2 = menu2.scegli();
 			switch(scelta2) {
 			case 1:
-				n = 5;
-				p = (int) Math.ceil((n+1)/3)+1;
-				g = (int) Math.ceil((n-1)*(n-2)/(2*p));
-				s = (int) Math.ceil((2*g*p)/n)*n;
-				System.out.println("n="+n);
-				System.out.println("g="+g);
-				System.out.println("s=" + s);
-				System.out.println("p=" + p);
+				e.setN(5);
+                e.setP((int) Math.ceil((e.getN()+1)/3)+1);
+				
+				e.setG((int) Math.ceil((e.getN()-1)*(e.getN()-2)/(2*e.getP())));
+				
+				t.setVita(100);
+			    Combattente c = new Combattente();
+				System.out.println("g="+e.getG());
+			    Combattente c1 = c.creaCombattente(e.getG(), t.getVita());
+			    Combattente c2 = c.creaCombattente(e.getG(), t.getVita());
+				
 				System.out.println("Giocherai con "+n +" elementi e "+p+" pietre assegnabili ai tuoi TamaGolem");
 								
 				for (int i = 0; i < g; i++) {
@@ -101,35 +106,36 @@ public class Menu {
 					scortaComune.remove(pietra);
 				}
 				
-				scortaComune = comb1.getSquadra().get(0).assegnaPietre(scortaComune);
-				scortaComune = comb2.getSquadra().get(0).assegnaPietre(scortaComune);
+				
 				mostraMenuCombattimento(comb1, comb2, matriceEquilibrio, scortaComune);
 				
 				break;
 			case 2:
 				System.out.println("Giocherai con 8 elementi e 4 pietre assegnabili ai tuoi TamaGolem");
 				e.setN(8);
-				/*
-				 * for (int i = 0; i < e.getG(); i++) { TamaGolem tama = new TamaGolem(200,
-				 * null); comb1.getSquadra().add(tama); }
-				 */
-				//scortaComune = e.creaScortaComune());
-				//matriceEquilibrio = e.creaEquilibrio();
-				//e.stampaMatrice(matriceEquilibrio);
-				//mostraMenuCombattimento(comb1, comb2, matriceEquilibrio, scortaComune);
+                e.setP((int) Math.ceil((e.getN()+1)/3)+1);
+				
+				e.setG((int) Math.ceil((e.getN()-1)*(e.getN()-2)/(2*e.getP())));
+				
+				t.setVita(200);
+				 c = new Combattente();
+				System.out.println("g="+e.getG());
+				 c1 = c.creaCombattente(e.getG(), t.getVita());
+				 c2 = c.creaCombattente(e.getG(), t.getVita());
 				
 				break;
 			case 3:
 				System.out.println("Giocherai con 10 elementi e 5 pietre assegnabili ai tuoi TamaGolem");
 				e.setN(10);
-				/*
-				 * for (int i = 0; i < e.getG(); i++) { TamaGolem tama = new TamaGolem(300,
-				 * null); comb1.getSquadra().add(tama); }
-				 */
-				//scortaComune = e.creaScortaComune((int) s, e.getN());
-				//matriceEquilibrio = e.creaEquilibrio();
-				//e.stampaMatrice(matriceEquilibrio);
-				//mostraMenuCombattimento(comb1, comb2, matriceEquilibrio, scortaComune);
+                e.setP((int) Math.ceil((e.getN()+1)/3)+1);
+				
+				e.setG((int) Math.ceil((e.getN()-1)*(e.getN()-2)/(2*e.getP())));
+				
+				t.setVita(400);
+			    c = new Combattente();
+				System.out.println("g="+e.getG());
+			    c1 = c.creaCombattente(e.getG(), t.getVita());
+			    c2 = c.creaCombattente(e.getG(), t.getVita());
 				
 				break;
 			}

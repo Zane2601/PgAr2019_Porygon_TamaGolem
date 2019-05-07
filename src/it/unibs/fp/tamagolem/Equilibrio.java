@@ -2,18 +2,25 @@ package it.unibs.fp.tamagolem;
 import java.util.ArrayList;
 import java.util.Random;
 public class Equilibrio {
-	
-	
-	private int n;    //numero di elementi
-	
-
 	public static String [] tipo = {"aria", "acqua", "terra", "fuoco", "erba", "etere", "buio", "luce", "roccia", "elettro"};
 	
-	public Equilibrio(int _n/*, int _p, int _g, int _s*/) {
+	private int n;    //numero di elementi
+	private double g;
+	private double p;
+	private double s;
+
+	
+	
+	
+	public Equilibrio(int _n, int _p, int _g, int _s) {
 		this.n = _n;
-		//this.p = _p;
-		//this.g = _g;
-		//this.s = _s;
+		this.p = _p;
+		this.g = _g;
+		this.s = _s;
+	}
+	
+	public Equilibrio() {
+		
 	}
 	
 	
@@ -21,7 +28,35 @@ public class Equilibrio {
 		return n;
 	}
 
-	
+	public double getG() {
+		return g;
+	}
+
+
+	public double getP() {
+		return p;
+	}
+
+
+	public double getS() {
+		return s;
+	}
+
+
+	public void setG(double g) {
+		this.g = g;
+	}
+
+
+	public void setP(double p) {
+		this.p = p;
+	}
+
+
+	public void setS(double s) {
+		this.s = s;
+	}
+
 	
 	public void setN(int n) {
 		this.n = n;
@@ -31,9 +66,7 @@ public class Equilibrio {
 	
 	//viene definito il metodo per la creazione della matrice dell'equilibrio 
 	public int[][] creaEquilibrio(int n) {
-	//setP=[(n+1)/3]+1;
-	//setG=[(n-1)*(n-2)/(2*p)];
-	//setS=[(2*g*p)/n]*n;
+	
 	
 	int [][] mat=new int[n][n];
 	Random random= new Random();

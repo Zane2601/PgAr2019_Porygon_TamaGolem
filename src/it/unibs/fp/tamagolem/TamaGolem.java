@@ -4,14 +4,20 @@ import java.util.ArrayList;
 
 import it.unibs.fp.mylib.InputDati;
 
+
+
 public class TamaGolem {
 	
 	private int vita;  //la vita non può essere fissa, a seconda del livello di difficolta deve cambiare
-	private ArrayList<String> listaPietre;
-	
-	public TamaGolem(int _vita) {
+	private ArrayList<String> listaPietre = new ArrayList<String>();
+	Equilibrio e= new Equilibrio();
+	public TamaGolem(int _vita, ArrayList<String> _listaPietre) {
 		this.vita = _vita;
-		listaPietre = new ArrayList<String>();
+		this.listaPietre = _listaPietre;
+	}
+	
+	public TamaGolem() {
+		
 	}
 	
 	public int getVita() {
@@ -34,16 +40,12 @@ public class TamaGolem {
 	
 	
 	
-	public ArrayList<String> assegnaPietre(ArrayList<String> scortaInIngresso) {
+    public TamaGolem creaTamaGolem(int vita) {
 		
-		ArrayList<String> scortaRestante = scortaInIngresso;
-		Equilibrio e = new Equilibrio();
+		ArrayList<String> listaPietre = new ArrayList<String>();
 		
-		int pietra = InputDati.leggiIntero("Scrivi il numero dell'elemento della pietra che vuoi assegnare al tuo TamaGolem: ");
-		listaPietre.add(scortaRestante.get(pietra-1));
-		scortaRestante.remove(pietra-1);
-		
-		return scortaRestante;
+		TamaGolem tama = new TamaGolem(vita,listaPietre);
+		return tama;
 	}
 
 }

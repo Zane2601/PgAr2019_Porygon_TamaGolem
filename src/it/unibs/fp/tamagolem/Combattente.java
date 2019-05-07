@@ -4,14 +4,20 @@ import java.util.ArrayList;
 
 import it.unibs.fp.mylib.InputDati;
 
+
 public class Combattente {
 	private String nome;
-	private ArrayList<TamaGolem> squadra;
+	private ArrayList<TamaGolem> squadra= new ArrayList<TamaGolem>();
 	
 	
-	public Combattente(String _nome) {
+	Equilibrio e = new Equilibrio();
+	Menu m = new Menu();
+	public Combattente(String _nome, ArrayList<TamaGolem> _squadra) {
 		this.nome = _nome;
-		squadra = new ArrayList<TamaGolem>();
+		this.squadra = _squadra;
+	}
+	
+	public Combattente() {
 		
 	}
 	
@@ -32,15 +38,21 @@ public class Combattente {
 		return squadra;
 	}
 	
-	
-	
-	/*
-	public  Combattente creaCombattente() {
+	public  Combattente creaCombattente(double golem, int vita) {
         String nome = InputDati.leggiStringa("Inserisci il nome del combattente: ");
         ArrayList<TamaGolem> squadra = new ArrayList<TamaGolem>();
+        TamaGolem t = new TamaGolem();
+        
+        for(int i=0; i<golem; i++) {
+        	TamaGolem tama = t.creaTamaGolem(vita);
+        	squadra.add(tama);
+        	
+        }
+        System.out.println(""+squadra);
         Combattente combattente = new Combattente(nome, squadra);
         return combattente;
 	}
-	*/
+	
+	
 
 }
