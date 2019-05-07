@@ -13,6 +13,7 @@ public class Menu {
 	Equilibrio e = new Equilibrio();
 	Combattente c = new Combattente();
 	TamaGolem t = new TamaGolem();
+	Combattimento combat = new Combattimento();
 	private static final String TITOLO_MENU = "Scegli un'azione";
 	private static final String [] VOCI_MENU_INIZIALE = {
             "Inizia Partita",
@@ -227,6 +228,7 @@ public class Menu {
 					System.out.println(""+c2.getSquadra().get(0).getListaPietre());
 				}while(c1.getSquadra().get(0).getListaPietre().equals(c2.getSquadra().get(0).getListaPietre()));
 				
+				combat.lancioPietre(c1, c2, matEquilibrio, scorta);
 				break;
 			
 			}
