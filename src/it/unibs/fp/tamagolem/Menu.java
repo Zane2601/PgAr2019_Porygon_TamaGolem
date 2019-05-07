@@ -36,11 +36,56 @@ public class Menu {
         MyMenu menu = new MyMenu(TITOLO_MENU, VOCI_MENU_INIZIALE);
        
         do {
-   
+        	int[][] matriceEquilibrio;
+    		ArrayList<String> scortaComune;
+    		
             scelta = menu.scegli();
             switch (scelta) {
             case 1:
-            	mostraMenuSecondario();
+            	int livello = InputDati.leggiIntero("Seleziona il livello di difficoltà:\n\t[1] facile\n\t[2] medio\n\t[3] difficile");
+            	switch (livello) {
+				case 1:
+					e.setN(5);
+					t.setVita(100);
+					break;
+
+				case 2:
+					e.setN(8);
+					t.setVita(200);
+					break;
+					
+				case 3:
+					e.setN(10);
+					t.setVita(400);
+					break;
+				default:
+					System.out.println("Il valore inserito non è accettato");
+					break;
+				}
+            	
+            	e.setP((int) Math.ceil((e.getN()+1)/3)+1);
+ 				
+ 				e.setG((int) Math.ceil((e.getN()-1)*(e.getN()-2)/(2*e.getP())));
+ 				e.setS((int) Math.ceil((2*e.getG()*e.getP())/e.getN())*e.getN());
+ 				System.out.println("g="+e.getG());
+			    Combattente c1 = c.creaCombattente(e.getG(), t.getVita());
+			    Combattente c2 = c.creaCombattente(e.getG(), t.getVita());
+				
+				System.out.println("Giocherai con "+e.getN() +" elementi e "+e.getP()+" pietre assegnabili ai tuoi TamaGolem");
+				
+				scortaComune = e.creaScortaComune(e.getS(), e.getN());
+				System.out.println("n="+e.getN());
+				System.out.println("p="+e.getP());
+				System.out.println("g="+e.getG());
+				System.out.println("s="+e.getS());
+
+				System.out.println(scortaComune.size());
+				
+				e.stampaScorta(scortaComune);
+				matriceEquilibrio = e.creaEquilibrio(e.getN());
+				e.stampaEquilibrioMondo(matriceEquilibrio, e.getN());
+				
+            	mostraMenuCombattimento();
                 break;
             }
            
@@ -48,12 +93,14 @@ public class Menu {
     }
 	
 	
+	
+	/*
 	public void mostraMenuSecondario() {
 		int scelta2;
 		
 
 		
-		MyMenu menu2 = new MyMenu(TITOLO_MENU_SECONDARIO, VOCI_MENU_SECONDARIO);
+		//MyMenu menu2 = new MyMenu(TITOLO_MENU_SECONDARIO, VOCI_MENU_SECONDARIO);
 		int[][] matriceEquilibrio;
 		ArrayList<String> scortaComune;
 
@@ -73,7 +120,7 @@ public class Menu {
 			    Combattente c2 = c.creaCombattente(e.getG(), t.getVita());
 				
 				System.out.println("Giocherai con "+e.getN() +" elementi e "+e.getP()+" pietre assegnabili ai tuoi TamaGolem");
-				/*				
+								
 				for (int i = 0; i < g; i++) {
 					ArrayList<String> listaPietre = new ArrayList<String>();
 					TamaGolem tama = new TamaGolem(100, listaPietre);
@@ -102,7 +149,7 @@ public class Menu {
 					System.out.println("L'elemento " +comb2.getSquadra().get(0).getListaPietre().get(i)+ " è stato assegnato al primo golem di " +comb2.getNome());
 					scortaComune.remove(pietra);
 				}
-				*/
+				
 				
 				mostraMenuCombattimento();
 				
@@ -139,7 +186,7 @@ public class Menu {
 		} while (scelta2 !=0);
 		
 		
-	}
+	}fine menu secondario*/
 	
 	public void mostraMenuCombattimento() {
 		int scelta3;

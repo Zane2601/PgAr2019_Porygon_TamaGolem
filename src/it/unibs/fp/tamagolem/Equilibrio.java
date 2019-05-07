@@ -144,7 +144,7 @@ public class Equilibrio {
 	 * @param listaElementiConCuiGiocare, lista scelta dai giocatori
 	 * @return scorta generata
 	 */
-	public ArrayList<String> creaScortaComune (int s, int n) {
+	public ArrayList<String> creaScortaComune (double s, int n) {
 		ArrayList<String> scorta = new ArrayList<String>();
 		double SdivisoN = (Math.ceil(s/n));
 		//vengono generati i valori di gioco, secondo le dinamiche (vengono mantenuti double, perché sennò alcuni sono = 0
