@@ -7,6 +7,8 @@ import it.unibs.fp.mylib.InputDati;
 
 public class Combattimento {
 	
+	private static final String AVANZAMENTO_COMBATTIMENTO = "\nPremi 1 per avanzare nel combattimento: ";
+
 	private static final String MESSAGGIO_DI_ERRORE = "Le pietre da voi scelte creerebbero una distorsione nell'equilibrio, per questo l'ordine verrà randomizzato da forze superiori";
 	
 	Equilibrio e = new Equilibrio();
@@ -95,8 +97,12 @@ public class Combattimento {
 		int vitaTama1 = comb1.getSquadra().get(g1).getVita();
 		int vitaTama2 = comb2.getSquadra().get(g2).getVita();
 		
+		int avanzamento;
 		do {
+			avanzamento = InputDati.leggiIntero(AVANZAMENTO_COMBATTIMENTO);
+			
 			do {
+				if (avanzamento == 1) {
 				int danno;
 				int i;
 				
@@ -155,14 +161,15 @@ public class Combattimento {
 								}
 							}
 							}	
-					}
+						}
 					}
 					if (i==numPietre) {
 						i=0;
 					}
-					
+					avanzamento = InputDati.leggiIntero(AVANZAMENTO_COMBATTIMENTO);	
+
+					}
 				}
-				
 			} while (vitaTama1>0 && vitaTama2>0);
 			
 			} while (g1 == numTama || g2 == numTama);
