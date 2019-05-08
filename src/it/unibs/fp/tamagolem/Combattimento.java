@@ -1,15 +1,41 @@
 package it.unibs.fp.tamagolem;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 import it.unibs.fp.mylib.InputDati;
 
 public class Combattimento {
 	
+	private static final String MESSAGGIO_DI_ERRORE = "Le pietre da voi scelte creerebbero una distorsione nell'equilibrio, per questo l'ordine verrà randomizzato da forze superiori";
+	
 	Equilibrio e = new Equilibrio();
 	
 	
+	public void aggiungiPietre(Combattente c, ArrayList<String> scorta, double numPietre) {
+		for (int i = 0; i <numPietre; i++) {
+			String pietra;
+			e.stampaScorta(scorta);
+			System.out.println("Turno di "+c.getNome());
+		do{
+			pietra=InputDati.leggiStringa("Inserisci pietra:");
+			if(!scorta.contains(pietra)) System.out.println("Non esiste questo elemento");
+		}while(!scorta.contains(pietra)) ;
+		c.getSquadra().get(0).getListaPietre().add(pietra);
+		scorta.remove(pietra);
+		
+		//e.stampaScorta(scorta);
+		
+		}
+	}
 	
+	public void controllaListaPietre(Combattente c1, Combattente c2) {
+		while(c1.getSquadra().get(0).getListaPietre().equals(c2.getSquadra().get(0).getListaPietre())) {
+			System.out.println(MESSAGGIO_DI_ERRORE);
+			Collections.shuffle(c2.getSquadra().get(0).getListaPietre());
+			System.out.println(""+c2.getSquadra().get(0).getListaPietre());
+		}
+	}
 	
 	
 	

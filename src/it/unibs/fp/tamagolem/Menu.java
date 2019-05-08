@@ -8,10 +8,11 @@ import it.unibs.fp.mylib.*;
 
 
 public class Menu {
-	private static final String MESSAGGIO_DI_ERRORE = "Le pietre da voi scelte creerebbero una distorsione nell'equilibrio, per questo l'ordine verrà randomizzato da forze superiori";
+	
 	private static final String SPIEGAZIONE_COMBATTIMENTO = "Prima di iniziare il combattimento dovrete assegnare le pietre del potere ai vostri TamaGolem,\ndovrete farlo ogni qualvolta un vostro TamaGolem morirà";
 	Equilibrio e = new Equilibrio();
 	Combattente c = new Combattente();
+	Combattimento C = new Combattimento();
 	TamaGolem t = new TamaGolem();
 	Combattimento combat = new Combattimento();
 	private static final String TITOLO_MENU = "Scegli un'azione";
@@ -200,42 +201,22 @@ public class Menu {
 			scelta3=menu3.scegli();
 			switch(scelta3) {
 			case 1:
-				//Combattimento c = new Combattimento();
-				//c.lancioPietre(comb1, comb2, matriceEquilibrio, scorta);
-				System.out.println(SPIEGAZIONE_COMBATTIMENTO);
-				for (int i = 0; i <e.getP(); i++) {
-					String pietra;
-					e.stampaScorta(scorta);
-					System.out.println("Turno di "+c1.getNome());
-				do{
-					pietra=InputDati.leggiStringa("Inserisci pietra:");
-					if(!scorta.contains(pietra)) System.out.println("Non esiste questo elemento");
-					}while(!scorta.contains(pietra)) ;
-					c1.getSquadra().get(0).getListaPietre().add(pietra);
-					scorta.remove(pietra);
-					System.out.println("Turno di "+c2.getNome());
-					e.stampaScorta(scorta);
-				do {
-					pietra=InputDati.leggiStringa("Inserisci pietra:");
-					if(!scorta.contains(pietra)) System.out.println("Non esiste questo elemento");
-					}while(!scorta.contains(pietra)) ;
-					c2.getSquadra().get(0).getListaPietre().add(pietra);
-					scorta.remove(pietra);
-					}
 				
-				while(c1.getSquadra().get(0).getListaPietre().equals(c2.getSquadra().get(0).getListaPietre())) {
-					System.out.println(MESSAGGIO_DI_ERRORE);
-					Collections.shuffle(c2.getSquadra().get(0).getListaPietre());
-					System.out.println(""+c2.getSquadra().get(0).getListaPietre());
-				}
+				System.out.println(SPIEGAZIONE_COMBATTIMENTO);
+				
+				C.aggiungiPietre(c1, scorta, e.getP());
+				C.aggiungiPietre(c2, scorta, e.getP());
+				
+				C.controllaListaPietre(c1, c2);
 				
 				if (combat.lancioPietre(c1, c2, matEquilibrio, scorta,e.getP(),e.getN(), e.getG()) == 1) System.out.println(c1.getNome()+" ha vinto!"); 
 				else System.out.println(c2.getNome() +" ha vinto!");
+				e.stampaEquilibrioMondo(matEquilibrio, e.getN());
 				break;
 			
 			}
 			
-				
+				 
 			
 		} while (scelta3!=0);
 		mostraMenuIniziale();
