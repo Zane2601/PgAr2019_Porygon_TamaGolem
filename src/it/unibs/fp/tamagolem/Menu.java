@@ -73,11 +73,11 @@ public class Menu {
  				
  				e.setG((int) Math.ceil((e.getN()-1)*(e.getN()-2)/(2*e.getP())));
  				e.setS((int) Math.ceil((2*e.getG()*e.getP())/e.getN())*e.getN());
- 				System.out.println("Ogni giocatore avrà "+e.getG()+" TamaGolem\n");
+ 				System.out.printf("\nOgni giocatore avrà %1.0f TamaGolem\n",e.getG());
 			    Combattente c1 = c.creaCombattente(e.getG(), t.getVita());
 			    Combattente c2 = c.creaCombattente(e.getG(), t.getVita());
 				
-				System.out.println("Giocherai con "+e.getN() +" elementi e "+e.getP()+" pietre assegnabili ai tuoi TamaGolem");
+				System.out.printf("\nGiocherai con %d elementi e %1.0f pietre assegnabili ai tuoi TamaGolem\n",e.getN(),e.getP());
 				
 				scortaComune = e.creaScortaComune(e.getS(), e.getN());
 				//System.out.println("n="+e.getN());
@@ -85,7 +85,7 @@ public class Menu {
 				//System.out.println("g="+e.getG());
 				//System.out.println("s="+e.getS());
 
-				System.out.println(scortaComune.size());
+				System.out.println("La scorta comune contiene "+scortaComune.size()+" elementi");
 				
 				e.stampaScorta(scortaComune);
 				matriceEquilibrio = e.creaEquilibrio(e.getN());
