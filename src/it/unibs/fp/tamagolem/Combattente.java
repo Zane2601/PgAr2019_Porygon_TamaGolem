@@ -48,7 +48,7 @@ public class Combattente {
         	squadra.add(tama);
         	
         }
-        System.out.println(""+squadra);
+        //System.out.println(""+squadra);
         Combattente combattente = new Combattente(nome, squadra);
         return combattente;
 	}

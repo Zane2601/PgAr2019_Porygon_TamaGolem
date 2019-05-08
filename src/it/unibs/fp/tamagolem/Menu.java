@@ -73,7 +73,7 @@ public class Menu {
  				
  				e.setG((int) Math.ceil((e.getN()-1)*(e.getN()-2)/(2*e.getP())));
  				e.setS((int) Math.ceil((2*e.getG()*e.getP())/e.getN())*e.getN());
- 				System.out.println("g="+e.getG());
+ 				System.out.println("Ogni giocatore avrà "+e.getG()+" TamaGolem\n");
 			    Combattente c1 = c.creaCombattente(e.getG(), t.getVita());
 			    Combattente c2 = c.creaCombattente(e.getG(), t.getVita());
 				
@@ -90,7 +90,7 @@ public class Menu {
 				e.stampaScorta(scortaComune);
 				matriceEquilibrio = e.creaEquilibrio(e.getN());
 				//e.stampaEquilibrioMondo(matriceEquilibrio, e.getN());
-				System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+				System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
             	mostraMenuCombattimento(c1, c2, scortaComune, matriceEquilibrio);
                 break;
             }
