@@ -111,7 +111,7 @@ public class Combattimento {
 							
 							System.out.println("Il tamagolem di " +comb1.getNome()+ " è morto");
 							g1++;
-							if(g1 == numTama) return 1;
+							if(g1 == numTama) return 2;
 							else {
 							vitaTama1 = comb1.getSquadra().get(g1).getVita();
 							
@@ -137,7 +137,7 @@ public class Combattimento {
 						if(vitaTama2<=0) {
 							System.out.println("Il tamagolem di " +comb2.getNome()+ " è morto");
 							g2++;
-							if(g2==numTama) return 2;
+							if(g2==numTama) return 1;
 							else {
 							vitaTama2=comb2.getSquadra().get(g2).getVita();
 							for (int j = 0; j < numPietre; j++) {
