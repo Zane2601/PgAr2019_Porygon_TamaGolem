@@ -10,7 +10,7 @@ import it.unibs.fp.mylib.*;
 public class Menu {
 	
 	private static final String SELEZIONA_DIFFICOLTA = "Seleziona il livello di difficoltà:\n\t[1] facile\n\t[2] medio\n\t[3] difficile\n";
-	private static final String SPIEGAZIONE_COMBATTIMENTO = "\nPrima di iniziare il combattimento dovrete assegnare le pietre del potere ai vostri TamaGolem,\ndovrete farlo ogni qualvolta un vostro TamaGolem morirà.\n Completa la vostra avventura potrete iniziarne un'altra totalmente nuova selezionando di nuovo questa opzione\n ";
+	private static final String SPIEGAZIONE_COMBATTIMENTO = "\nPrima di iniziare il combattimento dovrete assegnare le pietre del potere ai vostri TamaGolem,\ndovrete farlo ogni qualvolta un vostro TamaGolem morirà.\nCompletata la vostra avventura potrete iniziarne un'altra totalmente nuova selezionando di nuovo questa opzione\n ";
 	Equilibrio e = new Equilibrio();
 	Combattente c = new Combattente();
 	Combattimento C = new Combattimento();

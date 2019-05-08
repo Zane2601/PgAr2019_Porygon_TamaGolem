@@ -18,11 +18,12 @@ public class Combattimento {
 		
 		int tamaRimasti=(int)totaleTama-indiceTama;
 		
-		System.out.println("\nTi rimangono "+tamaRimasti+" TamaGolem");
 		for (int j = 0; j < numPietre; j++) {
 			String pietra;
+			System.out.println("\nTurno di "+c.getNome());
+			System.out.println("Ti rimangono "+tamaRimasti+" TamaGolem\n");
 			e.stampaScorta(scorta);
-			System.out.println("\n\nTurno di "+c.getNome());
+			
 				do{
 					pietra=InputDati.leggiStringa("\nInserisci pietra del potere: ");
 					System.out.println("\n");
