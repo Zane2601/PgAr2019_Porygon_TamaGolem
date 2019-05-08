@@ -14,28 +14,38 @@ public class Combattimento {
 	Equilibrio e = new Equilibrio();
 	
 	
-	public void aggiungiPietre(Combattente c, ArrayList<String> scorta, double numPietre) {
-		for (int i = 0; i <numPietre; i++) {
+	public void aggiungiPietre(Combattente c, ArrayList<String> scorta, double numPietre, int indiceTama) {
+		/*
+		 * for (int i = 0; i <numPietre; i++) { String pietra; e.stampaScorta(scorta);
+		 * System.out.println("Turno di "+c.getNome()); do{
+		 * pietra=InputDati.leggiStringa("Inserisci pietra:");
+		 * if(!scorta.contains(pietra))
+		 * System.out.println("Non esiste questo elemento");
+		 * }while(!scorta.contains(pietra)) ;
+		 * c.getSquadra().get(0).getListaPietre().add(pietra); scorta.remove(pietra);
+		 */
+		//e.stampaScorta(scorta);
+		
+		
+		for (int j = 0; j < numPietre; j++) {
 			String pietra;
 			e.stampaScorta(scorta);
 			System.out.println("Turno di "+c.getNome());
-		do{
-			pietra=InputDati.leggiStringa("Inserisci pietra:");
-			if(!scorta.contains(pietra)) System.out.println("Non esiste questo elemento");
-		}while(!scorta.contains(pietra)) ;
-		c.getSquadra().get(0).getListaPietre().add(pietra);
-		scorta.remove(pietra);
-		
-		//e.stampaScorta(scorta);
-		
+				do{
+					pietra=InputDati.leggiStringa("Inserisci pietra:");
+					if(!scorta.contains(pietra)) System.out.println("Non esiste questo elemento");
+				}while(!scorta.contains(pietra)) ;
+				c.getSquadra().get(indiceTama).getListaPietre().add(pietra);
+				scorta.remove(pietra);
+			}
 		}
-	}
 	
-	public void controllaListaPietre(Combattente c1, Combattente c2) {
-		while(c1.getSquadra().get(0).getListaPietre().equals(c2.getSquadra().get(0).getListaPietre())) {
+	
+	public void controllaListaPietre(Combattente c1, Combattente c2, int indice1, int indice2) {
+		while(c1.getSquadra().get(indice1).getListaPietre().equals(c2.getSquadra().get(indice2).getListaPietre())) {
 			System.out.println(MESSAGGIO_DI_ERRORE);
-			Collections.shuffle(c2.getSquadra().get(0).getListaPietre());
-			System.out.println(""+c2.getSquadra().get(0).getListaPietre());
+			Collections.shuffle(c2.getSquadra().get(indice2).getListaPietre());
+			System.out.println(""+c2.getSquadra().get(indice2).getListaPietre());
 		}
 	}
 	
@@ -120,18 +130,18 @@ public class Combattimento {
 							if(g1 == numTama) return 2;
 							else {
 							vitaTama1 = comb1.getSquadra().get(g1).getVita();
-							
-							for (int j = 0; j < numPietre; j++) {
-								String pietra;
-								e.stampaScorta(scorta);
-								System.out.println("Turno di "+comb1.getNome());
-									do{
-										pietra=InputDati.leggiStringa("Inserisci pietra:");
-										if(!scorta.contains(pietra)) System.out.println("Non esiste questo elemento");
-									}while(!scorta.contains(pietra)) ;
-									comb1.getSquadra().get(g1).getListaPietre().add(pietra);
-									scorta.remove(pietra);
-							}
+							aggiungiPietre(comb1, scorta, numPietre, g1);
+							controllaListaPietre(comb2, comb1, g2, g1);
+									/*
+									 * for (int j = 0; j < numPietre; j++) { String pietra; e.stampaScorta(scorta);
+									 * System.out.println("Turno di "+comb1.getNome()); do{
+									 * pietra=InputDati.leggiStringa("Inserisci pietra:");
+									 * if(!scorta.contains(pietra))
+									 * System.out.println("Non esiste questo elemento");
+									 * }while(!scorta.contains(pietra)) ;
+									 * comb1.getSquadra().get(g1).getListaPietre().add(pietra);
+									 * scorta.remove(pietra); }
+									 */
 							}
 						
 					} 
@@ -146,20 +156,19 @@ public class Combattimento {
 							if(g2==numTama) return 1;
 							else {
 							vitaTama2=comb2.getSquadra().get(g2).getVita();
-							for (int j = 0; j < numPietre; j++) {
-								String pietra;
-								System.out.println("Turno di "+comb2.getNome());
-								e.stampaScorta(scorta);
-								do {
-									pietra=InputDati.leggiStringa("Inserisci pietra:");
-									if(!scorta.contains(pietra)) System.out.println("Non esiste questo elemento");
-								}while(!scorta.contains(pietra)) ;
-								comb2.getSquadra().get(g2).getListaPietre().add(pietra);
-								scorta.remove(pietra);
-								if (j==numPietre) {
-									j=0;
-								}
-							}
+							aggiungiPietre(comb2, scorta, numPietre, g2);
+							controllaListaPietre(comb1, comb2, g1, g2);
+
+							/*
+									 * for (int j = 0; j < numPietre; j++) { String pietra;
+									 * System.out.println("Turno di "+comb2.getNome()); e.stampaScorta(scorta); do {
+									 * pietra=InputDati.leggiStringa("Inserisci pietra:");
+									 * if(!scorta.contains(pietra))
+									 * System.out.println("Non esiste questo elemento");
+									 * }while(!scorta.contains(pietra)) ;
+									 * comb2.getSquadra().get(g2).getListaPietre().add(pietra);
+									 * scorta.remove(pietra); if (j==numPietre) { j=0; } }
+									 */
 							}	
 						}
 					}
@@ -180,64 +189,7 @@ public class Combattimento {
 			return 0;
 		}
 	
-	
-	public int lancioPietre2 (Combattente comb1, Combattente comb2, int[][] matriceEquilibrio, ArrayList<String> scorta, double numPietre, int numEl,double numTama) {
-		e.stampaEquilibrioMondo(matriceEquilibrio, numEl);
-		int g1 = 0;
-		int g2 = 0;
-		
-		int vitaTama1 = comb1.getSquadra().get(g1).getVita();
-		int vitaTama2 = comb2.getSquadra().get(g2).getVita();
-
-		int avanzamento = 0;
-		
-		do {
-			if (vitaTama1 > 0) {
-				if (vitaTama2 > 0) {
-					do {
-						avanzamento = InputDati.leggiIntero("1 per combattere: ");
-						if (avanzamento == 1) {
-							int danno;
-							int i;
-							
-							for (i = 0; i < numPietre; i++) {
-								
-								danno = calcoloDanni(comb1.getSquadra().get(g1).getListaPietre().get(i), comb2.getSquadra().get(g2).getListaPietre().get(i),numEl, matriceEquilibrio);
-								if (chiAttacca(comb1.getSquadra().get(g1).getListaPietre().get(i), comb2.getSquadra().get(g2).getListaPietre().get(i), numEl, matriceEquilibrio) == true) {
-									vitaTama1 -= danno;
-									System.out.println("Il tamagolem di " +comb1.getNome()+ " subisce un danno di "+danno);
-								}else {
-									vitaTama2 -= danno;
-									System.out.println("Il tamagolem di " +comb2.getNome()+ " subisce un danno di "+danno);
-								}
-								if (vitaTama1<=0 || vitaTama2<=0) break;
-								
-								if (i==numPietre-1) {
-									i=-1;
-								}
-								avanzamento = InputDati.leggiIntero("1 se vuoi combattere, 0 altrimenti: ");	
-							}
-						}
-						avanzamento = 0;
-					} while (avanzamento != 0);
-				} else {
-					g2++;
-					vitaTama2 = comb2.getSquadra().get(g2).getVita();
-					aggiungiPietre(comb2, scorta, numPietre);
-				}
-			}
-			else {
-				g1++;
-				vitaTama1 = comb1.getSquadra().get(g1).getVita();
-				aggiungiPietre(comb1, scorta, numPietre);
-			}
-		} while (g1 < numTama || g2 < numTama); //ultimo while
-		
-		
-		
-		if (g1 == e.getG())	return 2;
-		else return 1;
-		}
+	///////////////////////////////////////////////////////////////////////////////////////////
 	
 	
 	

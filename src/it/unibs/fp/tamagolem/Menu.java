@@ -204,10 +204,10 @@ public class Menu {
 				
 				System.out.println(SPIEGAZIONE_COMBATTIMENTO);
 				
-				C.aggiungiPietre(c1, scorta, e.getP());
-				C.aggiungiPietre(c2, scorta, e.getP());
+				C.aggiungiPietre(c1, scorta, e.getP(), 0);
+				C.aggiungiPietre(c2, scorta, e.getP(), 0);
 				
-				C.controllaListaPietre(c1, c2);
+				C.controllaListaPietre(c1, c2, 0, 0);
 				
 				if (combat.lancioPietre(c1, c2, matEquilibrio, scorta,e.getP(),e.getN(), e.getG()) == 1) System.out.println(c1.getNome()+" ha vinto!"); 
 				else System.out.println(c2.getNome() +" ha vinto!");
