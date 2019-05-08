@@ -209,14 +209,13 @@ public class Menu {
 				
 				C.controllaListaPietre(c1, c2);
 				
-				if (combat.lancioPietre(c1, c2, matEquilibrio, scorta,e.getP(),e.getN(), e.getG()) == 1) System.out.println(c1.getNome()+" ha vinto!"); 
+				if (combat.lancioPietre2(c1, c2, matEquilibrio, scorta,e.getP(),e.getN(), e.getG()) == 1) System.out.println(c1.getNome()+" ha vinto!"); 
 				else System.out.println(c2.getNome() +" ha vinto!");
 				e.stampaEquilibrioMondo(matEquilibrio, e.getN());
 				break;
 			
 			}
-			
-				 
+							 
 			
 		} while (scelta3!=0);
 		mostraMenuIniziale();
