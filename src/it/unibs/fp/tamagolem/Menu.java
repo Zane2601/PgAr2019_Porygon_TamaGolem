@@ -7,6 +7,8 @@ import it.unibs.fp.mylib.*;
 
 public class Menu {
 	
+	private static final String FINE_COMBATTIMENTO = "L'equilibrio ormai è stato svelato, dovrete scegliere di nuovo la difficoltà e ripartire da zero";
+	private static final String ERRORE = "Il valore inserito non è accettato";
 	private static final String SELEZIONA_DIFFICOLTA = "Seleziona il livello di difficoltà:\n\t[1] facile\n\t[2] medio\n\t[3] difficile\n";
 	private static final String SPIEGAZIONE_COMBATTIMENTO = "\nPrima di iniziare il combattimento dovrete assegnare le pietre del potere ai vostri TamaGolem,\ndovrete farlo ogni qualvolta un vostro TamaGolem morirà.\nCompletata la vostra avventura potrete iniziarne un'altra totalmente nuova selezionando di nuovo questa opzione\n ";
 	Equilibrio e = new Equilibrio();
@@ -27,7 +29,7 @@ public class Menu {
 		"Inizia il combattimento"
 	};
 	
-	//viene mostrato il menu per iniziare una partita
+	//viene mostrato il menu per iniziare una partita e scegliere la difficoltà con cui giocare
 	public void mostraMenuIniziale() {                      
         int scelta;
         
@@ -59,7 +61,7 @@ public class Menu {
 					t.setVita(400);
 					break;
 				default:
-					System.out.println("Il valore inserito non è accettato");
+					System.out.println(ERRORE);
 					break;
 				}
             	
@@ -91,7 +93,7 @@ public class Menu {
 	
 	
 	
-	
+	//menu per iniziare a giocare con i richiami ai metodi per aggiungere pietre alle liste dei TamaGolem e il combattimento
 	public void mostraMenuCombattimento(Combattente c1, Combattente c2, ArrayList<String> scorta, int[][] matEquilibrio) {
 		int scelta3;
 		MyMenu menu3 = new MyMenu(TITOLO_MENU_COMBATTIMENTO, VOCI_MENU_COMBATTIMENTO);
@@ -114,7 +116,7 @@ public class Menu {
 				break;
 			
 			}
-			System.out.println("L'equilibrio ormai è stato svelato, dovrete scegliere di nuovo la difficoltà e ripartire da zero");				 
+			System.out.println(FINE_COMBATTIMENTO);				 
 			break;
 		} while (scelta3!=0);
 		

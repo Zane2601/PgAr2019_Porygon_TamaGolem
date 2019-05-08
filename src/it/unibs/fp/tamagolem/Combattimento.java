@@ -19,7 +19,7 @@ public class Combattimento {
 	
 	Equilibrio e = new Equilibrio();
 	
-	
+	//metodo per aggiungere le pietre alla lista dei TamaGolem
 	public void aggiungiPietre(Combattente c, ArrayList<String> scorta, double numPietre, int indiceTama, double totaleTama) {
 		
 		int tamaRimasti=(int)totaleTama-indiceTama;
@@ -40,7 +40,7 @@ public class Combattimento {
 			}
 		}
 	
-	
+	//controlla che i due giocatori non inseriscano una sequenza di pietre identica creando così un ciclo infinito
 	public void controllaListaPietre(Combattente c1, Combattente c2, int indice1, int indice2) {
 		while(c1.getSquadra().get(indice1).getListaPietre().equals(c2.getSquadra().get(indice2).getListaPietre())) {
 			System.out.println(MESSAGGIO_DI_ERRORE);
@@ -97,7 +97,7 @@ public class Combattimento {
 		
 	}
 	
-	//lancio pietre
+	//lancio pietre e calcolo del danno, richiamo ai primi due metodi della classe per riassegnare le pietre in caso di morte di un tamagolem 
 	
 	public int lancioPietre (Combattente comb1, Combattente comb2, int[][] matriceEquilibrio, ArrayList<String> scorta, double numPietre, int numEl,double numTama) {
 		

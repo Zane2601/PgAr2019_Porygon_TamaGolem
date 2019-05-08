@@ -117,7 +117,7 @@ public class Equilibrio {
 	
 	//stampa equilibri del mondo
 	public void stampaEquilibrioMondo (int[][] mat, int n) {
-	    //String [] tipo = {"aria", "acqua", "terra", "fuoco", "erba", "etere", "buio", "luce", "roccia", "elettro"};
+	    
 
 		
 		for (int i = 0; i < n; i++) {
@@ -132,9 +132,8 @@ public class Equilibrio {
 			for(int j=0; j<n; j++) {
 				System.out.print(mat[i][j]+"\t");
 			}
-			//System.out.print(tipo[i]+"\t");
+			
 			System.out.print("\n");
-			//System.out.print(tipo[i]+"\t");
 			
 		}
 	}
@@ -162,6 +161,7 @@ public class Equilibrio {
 		return scorta;
 	}
 	
+	//stampa la scorta in modo che i giocatori siano sempre aggiornati sul numero delle pietre utilizzabili
 	public void stampaScorta(ArrayList<String> scorta) {
 		int contatore = 1;
 		int contatoreElementi = 1;
