@@ -9,7 +9,8 @@ import it.unibs.fp.mylib.*;
 
 public class Menu {
 	
-	private static final String SPIEGAZIONE_COMBATTIMENTO = "Prima di iniziare il combattimento dovrete assegnare le pietre del potere ai vostri TamaGolem,\ndovrete farlo ogni qualvolta un vostro TamaGolem morirà";
+	private static final String SELEZIONA_DIFFICOLTA = "Seleziona il livello di difficoltà:\n\t[1] facile\n\t[2] medio\n\t[3] difficile\n";
+	private static final String SPIEGAZIONE_COMBATTIMENTO = "\nPrima di iniziare il combattimento dovrete assegnare le pietre del potere ai vostri TamaGolem,\ndovrete farlo ogni qualvolta un vostro TamaGolem morirà.\n Completa la vostra avventura potrete iniziarne un'altra totalmente nuova selezionando di nuovo questa opzione\n ";
 	Equilibrio e = new Equilibrio();
 	Combattente c = new Combattente();
 	Combattimento C = new Combattimento();
@@ -20,14 +21,9 @@ public class Menu {
             "Inizia Partita",
             
           };
-	private static final String TITOLO_MENU_SECONDARIO = "Scegli la difficoltà";
-	private static final String [] VOCI_MENU_SECONDARIO = {
-			"Facile",
-			"Normale",
-			"Difficile"
-	};
 	
-	private static final String TITOLO_MENU_COMBATTIMENTO = "Assegna le pietre elementari al tuo tamagolem";
+	
+	private static final String TITOLO_MENU_COMBATTIMENTO = "Qui inizia la vostra avventura";
 	private static final String [] VOCI_MENU_COMBATTIMENTO = {
 		
 		"Inizia il combattimento"
@@ -48,7 +44,7 @@ public class Menu {
             switch (scelta) {
             case 1:
             	System.out.println("\n\n");
-            	int livello = InputDati.leggiIntero("Seleziona il livello di difficoltà:\n\t[1] facile\n\t[2] medio\n\t[3] difficile\n");
+            	int livello = InputDati.leggiIntero(SELEZIONA_DIFFICOLTA);
             	switch (livello) {
 				case 1:
 					e.setN(5);
@@ -80,17 +76,14 @@ public class Menu {
 				System.out.printf("\nGiocherai con %d elementi e %1.0f pietre assegnabili ai tuoi TamaGolem\n",e.getN(),e.getP());
 				
 				scortaComune = e.creaScortaComune(e.getS(), e.getN());
-				//System.out.println("n="+e.getN());
-				//System.out.println("p="+e.getP());
-				//System.out.println("g="+e.getG());
-				//System.out.println("s="+e.getS());
+				
 
 				System.out.println("La scorta comune contiene "+scortaComune.size()+" elementi");
 				
 				e.stampaScorta(scortaComune);
 				matriceEquilibrio = e.creaEquilibrio(e.getN());
-				//e.stampaEquilibrioMondo(matriceEquilibrio, e.getN());
-				System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+				
+				System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
             	mostraMenuCombattimento(c1, c2, scortaComune, matriceEquilibrio);
                 break;
             }
@@ -100,99 +93,6 @@ public class Menu {
 	
 	
 	
-	/*
-	public void mostraMenuSecondario() {
-		int scelta2;
-		
-
-		
-		//MyMenu menu2 = new MyMenu(TITOLO_MENU_SECONDARIO, VOCI_MENU_SECONDARIO);
-		int[][] matriceEquilibrio;
-		ArrayList<String> scortaComune;
-
-		do {
-			scelta2 = menu2.scegli();
-			switch(scelta2) {
-			case 1:
-				e.setN(5);
-                e.setP((int) Math.ceil((e.getN()+1)/3)+1);
-				
-				e.setG((int) Math.ceil((e.getN()-1)*(e.getN()-2)/(2*e.getP())));
-				
-				t.setVita(100);
-			    
-				System.out.println("g="+e.getG());
-			    Combattente c1 = c.creaCombattente(e.getG(), t.getVita());
-			    Combattente c2 = c.creaCombattente(e.getG(), t.getVita());
-				
-				System.out.println("Giocherai con "+e.getN() +" elementi e "+e.getP()+" pietre assegnabili ai tuoi TamaGolem");
-								
-				for (int i = 0; i < g; i++) {
-					ArrayList<String> listaPietre = new ArrayList<String>();
-					TamaGolem tama = new TamaGolem(100, listaPietre);
-					comb1.getSquadra().add(tama);
-				}
-				
-				scortaComune = e.creaScortaComune((int) s, n);
-				e.stampaScorta(scortaComune);
-				matriceEquilibrio = e.creaEquilibrio(n);
-				e.stampaEquilibrioMondo(matriceEquilibrio, n);
-				for (int i = 1; i < p; i++) {
-					for (int j = 0; j < scortaComune.size(); j++) {
-						System.out.println("["+(j+1) +"] "+scortaComune.get(j));
-					}
-					System.out.println("Vai "+comb1.getNome()+", tocca a te!");
-					String pietra = InputDati.leggiStringa("Inserisci il numero dell'elemento che vuoi dare in pasto al TamaGolem: ");
-					comb1.getSquadra().get(0).getListaPietre().add(scortaComune.get(i-1));
-					System.out.println("L'elemento " +comb1.getSquadra().get(0).getListaPietre().get(i)+ " è stato assegnato al primo golem di " +comb1.getNome());
-					scortaComune.remove(pietra);
-					for (int j = 0; j < scortaComune.size(); j++) {
-						System.out.println("["+(j+1) +"] "+scortaComune.get(j));
-					}
-					System.out.println("\nVai "+comb2.getNome()+", è il tuo turno!");
-					pietra = InputDati.leggiStringa("Inserisci il numero dell'elemento che vuoi dare in pasto al TamaGolem: ");
-					comb2.getSquadra().get(0).getListaPietre().add(scortaComune.get(i-1));
-					System.out.println("L'elemento " +comb2.getSquadra().get(0).getListaPietre().get(i)+ " è stato assegnato al primo golem di " +comb2.getNome());
-					scortaComune.remove(pietra);
-				}
-				
-				
-				mostraMenuCombattimento();
-				
-				break;
-			case 2:
-				System.out.println("Giocherai con 8 elementi e 4 pietre assegnabili ai tuoi TamaGolem");
-				e.setN(8);
-                e.setP((int) Math.ceil((e.getN()+1)/3)+1);
-				
-				e.setG((int) Math.ceil((e.getN()-1)*(e.getN()-2)/(2*e.getP())));
-				
-				t.setVita(200);
-				 c = new Combattente();
-				System.out.println("g="+e.getG());
-				 c1 = c.creaCombattente(e.getG(), t.getVita());
-				 c2 = c.creaCombattente(e.getG(), t.getVita());
-				
-				break;
-			case 3:
-				System.out.println("Giocherai con 10 elementi e 5 pietre assegnabili ai tuoi TamaGolem");
-				e.setN(10);
-                e.setP((int) Math.ceil((e.getN()+1)/3)+1);
-				
-				e.setG((int) Math.ceil((e.getN()-1)*(e.getN()-2)/(2*e.getP())));
-				
-				t.setVita(400);
-			    c = new Combattente();
-				System.out.println("g="+e.getG());
-			    c1 = c.creaCombattente(e.getG(), t.getVita());
-			    c2 = c.creaCombattente(e.getG(), t.getVita());
-				
-				break;
-			}
-		} while (scelta2 !=0);
-		
-		
-	}fine menu secondario*/
 	
 	public void mostraMenuCombattimento(Combattente c1, Combattente c2, ArrayList<String> scorta, int[][] matEquilibrio) {
 		int scelta3;
@@ -204,8 +104,9 @@ public class Menu {
 				
 				System.out.println(SPIEGAZIONE_COMBATTIMENTO);
 				
-				C.aggiungiPietre(c1, scorta, e.getP(), 0);
-				C.aggiungiPietre(c2, scorta, e.getP(), 0);
+				
+				C.aggiungiPietre(c1, scorta, e.getP(), 0, e.getG());
+				C.aggiungiPietre(c2, scorta, e.getP(), 0, e.getG());
 				
 				C.controllaListaPietre(c1, c2, 0, 0);
 				
@@ -215,9 +116,9 @@ public class Menu {
 				break;
 			
 			}
-							 
-			
+			System.out.println("L'equilibrio ormai è stato svelato, dovrete scegliere di nuovo la difficoltà e ripartire da zero");				 
+			break;
 		} while (scelta3!=0);
-		mostraMenuIniziale();
+		
 	}
 }

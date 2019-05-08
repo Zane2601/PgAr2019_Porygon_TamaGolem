@@ -8,7 +8,7 @@ import it.unibs.fp.mylib.InputDati;
 
 public class TamaGolem {
 	
-	private int vita;  //la vita non può essere fissa, a seconda del livello di difficolta deve cambiare
+	private int vita;  
 	private ArrayList<String> listaPietre = new ArrayList<String>();
 	Equilibrio e= new Equilibrio();
 	public TamaGolem(int _vita, ArrayList<String> _listaPietre) {
