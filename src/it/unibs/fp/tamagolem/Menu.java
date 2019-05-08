@@ -1,8 +1,6 @@
 package it.unibs.fp.tamagolem;
-import java.lang.*;
-import java.util.ArrayList;
-import java.util.Collections;
 
+import java.util.ArrayList;
 import it.unibs.fp.mylib.*;
 
 

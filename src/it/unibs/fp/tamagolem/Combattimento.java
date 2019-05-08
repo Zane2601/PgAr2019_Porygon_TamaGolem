@@ -7,6 +7,12 @@ import it.unibs.fp.mylib.InputDati;
 
 public class Combattimento {
 	
+	private static final String INEFFICACE = "\nL'attacco non ha molto effetto";
+
+	private static final String MORTALE = "\nL'attacco è mortale";
+
+	private static final String SUPEREFFICACE = "\nL'attacco è Superefficace";
+
 	private static final String AVANZAMENTO_COMBATTIMENTO = "\n\nPremi 1 per avanzare nel combattimento: ";
 
 	private static final String MESSAGGIO_DI_ERRORE = "Le pietre da voi scelte creerebbero una distorsione nell'equilibrio, per questo l'ordine verrà randomizzato da forze superiori";
@@ -114,7 +120,11 @@ public class Combattimento {
 					
 					danno = calcoloDanni(comb1.getSquadra().get(g1).getListaPietre().get(i), comb2.getSquadra().get(g2).getListaPietre().get(i),numEl, matriceEquilibrio);
 					if (chiAttacca(comb1.getSquadra().get(g1).getListaPietre().get(i), comb2.getSquadra().get(g2).getListaPietre().get(i), numEl, matriceEquilibrio) == true) {
+						if(danno>80) System.out.println(SUPEREFFICACE);
+						else if(danno>vitaTama1) System.out.println(MORTALE);
+						else if(danno<20) System.out.println(INEFFICACE);
 						vitaTama1 -= danno;
+						
 						System.out.println("Vengono scagliate la pietra "+comb1.getSquadra().get(g1).getListaPietre().get(i)+" e la pietra "+comb2.getSquadra().get(g2).getListaPietre().get(i));
 						System.out.println("\nIl tamagolem di " +comb1.getNome()+ " subisce un danno di "+danno);
 						 
@@ -133,7 +143,11 @@ public class Combattimento {
 						
 					} else System.out.println("\nL'energia vitale del TamaGolem di "+comb1.getNome()+ " è "+vitaTama1);
 					}else {
+						if(danno>80) System.out.println(SUPEREFFICACE);
+						else if(danno>vitaTama2) System.out.println(MORTALE);
+						else if(danno<20) System.out.println(INEFFICACE);
 						vitaTama2 -= danno;
+						
 						System.out.println("Vengono scagliate la pietra "+comb1.getSquadra().get(g1).getListaPietre().get(i)+" e la pietra "+comb2.getSquadra().get(g2).getListaPietre().get(i));
 
 						System.out.println("\nIl tamagolem di " +comb2.getNome()+ " subisce un danno di "+danno);
