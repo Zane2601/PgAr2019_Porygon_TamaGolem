@@ -96,7 +96,7 @@ public class Combattimento {
 		int vitaTama2 = comb2.getSquadra().get(g2).getVita();
 		
 		do {
-			//do {
+			do {
 				int danno;
 				int i;
 				
@@ -105,6 +105,7 @@ public class Combattimento {
 					danno = calcoloDanni(comb1.getSquadra().get(g1).getListaPietre().get(i), comb2.getSquadra().get(g2).getListaPietre().get(i),numEl, matriceEquilibrio);
 					if (chiAttacca(comb1.getSquadra().get(g1).getListaPietre().get(i), comb2.getSquadra().get(g2).getListaPietre().get(i), numEl, matriceEquilibrio) == true) {
 						vitaTama1 -= danno;
+						System.out.println("Vengono scagliate la pietra "+comb1.getSquadra().get(g1).getListaPietre().get(i)+" e la pietra "+comb2.getSquadra().get(g2).getListaPietre().get(i));
 						System.out.println("Il tamagolem di " +comb1.getNome()+ " subisce un danno di "+danno);
 						if (vitaTama1 <= 0) {
 							
@@ -126,13 +127,12 @@ public class Combattimento {
 									scorta.remove(pietra);
 							}
 							}
-							
-						
-						
 						
 					} 
 					}else {
 						vitaTama2 -= danno;
+						System.out.println("Vengono scagliate la pietra "+comb1.getSquadra().get(g1).getListaPietre().get(i)+" e la pietra "+comb2.getSquadra().get(g2).getListaPietre().get(i));
+
 						System.out.println("Il tamagolem di " +comb2.getNome()+ " subisce un danno di "+danno);
 						if(vitaTama2<=0) {
 							System.out.println("Il tamagolem di " +comb2.getNome()+ "è morto");
@@ -150,6 +150,9 @@ public class Combattimento {
 								}while(!scorta.contains(pietra)) ;
 								comb2.getSquadra().get(g2).getListaPietre().add(pietra);
 								scorta.remove(pietra);
+								if (j==numPietre) {
+									j=0;
+								}
 							}
 							}	
 					}
@@ -160,7 +163,7 @@ public class Combattimento {
 					
 				}
 				
-			//} while (vitaTama1>0 && vitaTama2>0);
+			} while (vitaTama1>0 && vitaTama2>0);
 			
 			} while (g1 == numTama || g2 == numTama);
 		
